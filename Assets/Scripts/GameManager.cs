@@ -5,7 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public Vector3[] generatePos;
+    public Vector3[] spawnPos;
 
     [SerializeField] private GameObject block;
     [SerializeField] private TextMeshProUGUI totalBlockText;
@@ -13,11 +13,11 @@ public class GameManager : MonoBehaviour
 
     private int passedBlockNum = 0;
     private int totalBlockNum = 0;
-    private int currentGeneratePos = 0;
+    private int currentSpawnPos = 0;
 
     public void StartGame()
     {
-        GenerateBlock();
+        SpawnBlock();
     }
 
     public void PauseGame()
@@ -36,15 +36,27 @@ public class GameManager : MonoBehaviour
         passedBlockText.text = "Passed Blocks: " + passedBlockNum.ToString();
     }
 
-    public void GenerateBlock()
+    public void SpawnBlock()
     {
-        Instantiate(block, generatePos[currentGeneratePos], Quaternion.identity);
+        Instantiate(block, spawnPos[currentSpawnPos], Quaternion.identity);
         totalBlockNum++;
         totalBlockText.text = "Total Blocks: " + totalBlockNum.ToString();
-        currentGeneratePos++;
-        if (currentGeneratePos >= generatePos.Length)
+        currentSpawnPos++;
+        if (currentSpawnPos >= spawnPos.Length)
         {
-            currentGeneratePos = 0;
+            currentSpawnPos = 0;
+            ReportParameters();
+            ChangeParameters();
         }
+    }
+
+    private void ReportParameters()
+    {
+
+    }
+
+    private void ChangeParameters()
+    {
+
     }
 }

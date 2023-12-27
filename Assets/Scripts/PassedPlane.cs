@@ -11,7 +11,7 @@ public class PassedPlane : MonoBehaviour
         if (collision.gameObject.CompareTag("Block"))
         {
             gameManager.AddPassedBlock();
-            gameManager.GenerateBlock();
+            gameManager.SpawnBlock();
             Destroy(collision.gameObject);
         }
     }

@@ -13,7 +13,6 @@ public class Block : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
@@ -25,7 +24,7 @@ public class Block : MonoBehaviour
             destroyTimer += Time.deltaTime;
             if (destroyTimer >= destroyInterval && isDestroying)
             {
-                gameManager.GenerateBlock();
+                gameManager.SpawnBlock();
                 Destroy(gameObject);
             }
         }
