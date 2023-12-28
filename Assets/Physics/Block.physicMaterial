@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: Block
   dynamicFriction: 0.35
   staticFriction: 0.35
-  bounciness: 0.375
+  bounciness: 0.5
   frictionCombine: 0
   bounceCombine: 0
