@@ -15,7 +15,7 @@ public class Block : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
-
+    /*
     private void Update()
     {
         if (rb.velocity == Vector3.zero && rb.angularVelocity == Vector3.zero)
@@ -34,4 +34,5 @@ public class Block : MonoBehaviour
             destroyTimer = 0;
         }
     }
+    */
 }

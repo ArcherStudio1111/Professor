@@ -6,6 +6,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public Vector3[] spawnPos;
+    public Vector3[] holeCenter;
 
     [SerializeField] private GameObject block;
     [SerializeField] private TextMeshProUGUI totalBlockText;
