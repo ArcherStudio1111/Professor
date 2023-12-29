@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_ProbeAnchor
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4182007498095186993, guid: 2e7119edc97bc534994ef6fd1698af53, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46a87e3f58a511647960819cc42cd08c, type: 2}
     - target: {fileID: 8008549901318125984, guid: 2e7119edc97bc534994ef6fd1698af53, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.3530006

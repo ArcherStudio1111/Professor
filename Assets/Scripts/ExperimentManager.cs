@@ -19,10 +19,13 @@ public class ExperimentManager : MonoBehaviour
 
     private bool isUpDirection = true;
     private int currentBlock = 0;
+    private GameManager gameManager;
 
     private void Awake()
     {
         SetParameters();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager.OnGameStart += SpawnBlock;
     }
 
     private void SetParameters()
@@ -36,6 +39,7 @@ public class ExperimentManager : MonoBehaviour
         //Check parameter
         if (bounciness < 0)
         {
+            //Debug.LogWarning("bounciness is too large!");
             bounciness = 0;
         }
         else if (bounciness > 1)

@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockRight
       objectReference: {fileID: 0}
+    - target: {fileID: 8333156170186883794, guid: eec5133c64f93ca42a7b4a84032dca3c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4966b52cf069e4346817db252ccb6ca3, type: 2}
     - target: {fileID: 8855756400932755138, guid: eec5133c64f93ca42a7b4a84032dca3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.2389984

@@ -384,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staticFriction: 0.05
   dynamicFriction: 0.05
-  bounciness: 1
+  bounciness: 0.3
   blocksUp:
   - {fileID: 1847102105023845409}
   - {fileID: 7221038416090468747}
