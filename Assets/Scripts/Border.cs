@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PassedPlane : MonoBehaviour
+public class Border : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private ExperimentManager experimentManager;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Block"))
         {
-            gameManager.AddPassedBlock();
-            gameManager.SpawnBlock();
+            experimentManager.SpawnBlock();
             Destroy(collision.gameObject);
         }
     }

@@ -4,23 +4,52 @@ using UnityEngine;
 
 public class ExperimentManager : MonoBehaviour
 {
+    [Header("Parameters")]
     public float staticFriction = 0.05f;
     public float dynamicFriction = 0.05f;
     public float bounciness = 0.3f;
 
+    [Header("Test Objects")]
     [SerializeField] private List<GameObject> blocksUp = new List<GameObject>();
     [SerializeField] private List<GameObject> blocksDown = new List<GameObject>();
     [SerializeField] private GameObject upFunnel;
     [SerializeField] private GameObject downFunnel;
+    [SerializeField] private GameObject upObjects;
+    [SerializeField] private GameObject downObjects;
 
     private bool isUpDirection = true;
     private int currentBlock = 0;
 
-    public void SetParameters(float staticParameter, float dynamicParameter, float bounceParameter)
+    private void Awake()
     {
-        staticFriction = staticParameter;
-        dynamicFriction = dynamicParameter;
-        bounciness = bounceParameter;
+        SetParameters();
+    }
+
+    private void SetParameters()
+    {
+        SetBouciness();
+        SetFriction();
+    }
+
+    private void SetBouciness()
+    {
+        //Check parameter
+        if (bounciness < 0)
+        {
+            bounciness = 0;
+        }
+        else if (bounciness > 1)
+        {
+            bounciness = 1;
+        }
+
+        upFunnel.GetComponent<MeshCollider>().material.bounciness = bounciness;
+        downFunnel.GetComponent<MeshCollider>().material.bounciness = bounciness;
+    }
+
+    private void SetFriction()
+    {
+        //Check parameters
         if (staticFriction < 0)
         {
             staticFriction = 0;
@@ -29,14 +58,11 @@ public class ExperimentManager : MonoBehaviour
         {
             dynamicFriction = 0;
         }
-        if(bounciness < 0)
-        {
-            bounciness = 0;
-        }
-        else if (bounciness > 1) 
-        { 
-            bounciness = 1;
-        }
+
+        upFunnel.GetComponent<MeshCollider>().material.staticFriction = staticFriction;
+        upFunnel.GetComponent<MeshCollider>().material.dynamicFriction = dynamicFriction;
+        downFunnel.GetComponent<MeshCollider>().material.staticFriction = staticFriction;
+        downFunnel.GetComponent<MeshCollider>().material.dynamicFriction = dynamicFriction;
     }
 
     public void SpawnBlock()
@@ -45,8 +71,8 @@ public class ExperimentManager : MonoBehaviour
         {
             currentBlock = 0;
             isUpDirection = false;
-            upFunnel.SetActive(false);
-            downFunnel.SetActive(true);
+            upObjects.SetActive(false);
+            downObjects.SetActive(true);
         }
 
         if (isUpDirection)

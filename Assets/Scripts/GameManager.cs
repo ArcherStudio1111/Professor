@@ -5,23 +5,20 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public ExperimentManager experimentManager;
-
-    public Vector3[] spawnPos;
-    public Vector3[] holeCenter;
-
-    [SerializeField] private GameObject block;
-    [SerializeField] private TextMeshProUGUI totalBlockText;
-    [SerializeField] private TextMeshProUGUI passedBlockText;
-
-    private int passedBlockNum = 0;
-    private int totalBlockNum = 0;
-    private int currentSpawnPos = 0;
-
     public void StartGame()
     {
-        experimentManager.SpawnBlock();
-        //SpawnBlock();
+        SpawnExperimentManagers();
+        SetParameters();
+    }
+
+    private void SpawnExperimentManagers()
+    {
+
+    }
+
+    private void SetParameters()
+    {
+
     }
 
     public void PauseGame()
@@ -32,35 +29,5 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
-    }
-
-    public void AddPassedBlock()
-    {
-        passedBlockNum++;
-        passedBlockText.text = "Passed Blocks: " + passedBlockNum.ToString();
-    }
-
-    public void SpawnBlock()
-    {
-        Instantiate(block, spawnPos[currentSpawnPos], Quaternion.identity);
-        totalBlockNum++;
-        totalBlockText.text = "Total Blocks: " + totalBlockNum.ToString();
-        currentSpawnPos++;
-        if (currentSpawnPos >= spawnPos.Length)
-        {
-            currentSpawnPos = 0;
-            ReportParameters();
-            ChangeParameters();
-        }
-    }
-
-    private void ReportParameters()
-    {
-
-    }
-
-    private void ChangeParameters()
-    {
-
     }
 }
