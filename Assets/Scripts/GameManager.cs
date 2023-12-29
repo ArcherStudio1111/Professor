@@ -5,6 +5,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public ExperimentManager experimentManager;
+
     public Vector3[] spawnPos;
     public Vector3[] holeCenter;
 
@@ -18,7 +20,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SpawnBlock();
+        experimentManager.SpawnBlock();
+        //SpawnBlock();
     }
 
     public void PauseGame()

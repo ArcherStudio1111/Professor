@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    [SerializeField] private ExperimentManager experimentManager;
     [SerializeField] private Rigidbody rb;
 
-    private GameManager gameManager;
     private bool isDestroying;
     private float destroyInterval = 1;
     private float destroyTimer = 0;
 
-    private void Awake()
-    {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-    }
-    /*
     private void Update()
     {
         if (rb.velocity == Vector3.zero && rb.angularVelocity == Vector3.zero)
@@ -24,7 +19,7 @@ public class Block : MonoBehaviour
             destroyTimer += Time.deltaTime;
             if (destroyTimer >= destroyInterval && isDestroying)
             {
-                gameManager.SpawnBlock();
+                experimentManager.SpawnBlock();
                 Destroy(gameObject);
             }
         }
@@ -34,5 +29,4 @@ public class Block : MonoBehaviour
             destroyTimer = 0;
         }
     }
-    */
 }
