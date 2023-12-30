@@ -8,11 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public event Action OnGameStart;
 
-    [Header("Manager Layout")]
-    public float managerInterval;
-    public int maxRowManagers;
-    public int maxClomnManagers;
-
     [SerializeField] private ExperimentManager experimentManager;
 
     [Header("Parameters Text")]
@@ -29,6 +24,8 @@ public class GameManager : MonoBehaviour
     private float dynamicFriction;
     private int testNum;
     private float precision;
+    private float managerInterval;
+    private int maxRowManagers;
 
     public void StartGame()
     {
@@ -71,9 +68,11 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < testNum; i++)
         {
-            Vector3 Xoffset = Vector3.forward * managerInterval * (i % maxRowManagers);
-            Vector3 Yoffset = Vector3.left * managerInterval * (i % maxClomnManagers);
+            var rowRemainder = i % maxRowManagers;
+            Vector3 Xoffset = Vector3.back * managerInterval * rowRemainder;
+            Vector3 Yoffset = Vector3.left * managerInterval * (i / maxRowManagers);
             var experimentManagerClone = Instantiate(experimentManager, transform.position + Xoffset + Yoffset, Quaternion.identity);
+
             switch (testingParameter)
             {
                 case Parameters.Bounciness:
