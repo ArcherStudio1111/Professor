@@ -19,20 +19,34 @@ public class GameManager : MonoBehaviour
     public enum Parameters { Bounciness, StaticFriction, DynamicFriction }
     public Parameters testingParameter = Parameters.Bounciness;
 
+    //Parameters
     private float bounciness;
     private float staticFriction;
     private float dynamicFriction;
     private int testNum;
     private float precision;
-    private float managerInterval;
-    private int maxRowManagers;
+
+    //Layout
+    private float managerInterval = 2;
+    private int maxRowManagers = 5;
+
+    private int finishedExperiment = 0;
 
     public void StartGame()
     {
         ReadParameters();
         SpawnExperimentManagers();
-        SetParameters();
         OnGameStart.Invoke();
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 
     private void ReadParameters()
@@ -61,7 +75,6 @@ public class GameManager : MonoBehaviour
         {
             precision = 0;
         }
-
     }
 
     private void SpawnExperimentManagers()
@@ -72,34 +85,32 @@ public class GameManager : MonoBehaviour
             Vector3 Xoffset = Vector3.back * managerInterval * rowRemainder;
             Vector3 Yoffset = Vector3.left * managerInterval * (i / maxRowManagers);
             var experimentManagerClone = Instantiate(experimentManager, transform.position + Xoffset + Yoffset, Quaternion.identity);
-
-            switch (testingParameter)
-            {
-                case Parameters.Bounciness:
-                    experimentManagerClone.bounciness = bounciness + i * precision;
-                    break;
-                case Parameters.StaticFriction:
-                    experimentManagerClone.staticFriction = staticFriction + i * precision;
-                    break;
-                case Parameters.DynamicFriction:
-                    experimentManagerClone.dynamicFriction = dynamicFriction + i * precision;
-                    break;
-            }
+            SetParameters(experimentManagerClone, i);
         }
     }
 
-    private void SetParameters()
+    private void SetParameters(ExperimentManager experimentManagerClone, int count)
     {
-
+        switch (testingParameter)
+        {
+            case Parameters.Bounciness:
+                experimentManagerClone.bounciness = bounciness + count * precision;
+                break;
+            case Parameters.StaticFriction:
+                experimentManagerClone.staticFriction = staticFriction + count * precision;
+                break;
+            case Parameters.DynamicFriction:
+                experimentManagerClone.dynamicFriction = dynamicFriction + count * precision;
+                break;
+        }
     }
 
-    public void PauseGame()
+    public void FinishExperiment()
     {
-        Time.timeScale = 0;
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
+        finishedExperiment++;
+        if (finishedExperiment >= testNum)
+        {
+            Debug.Log("All Experiment Finish Successfully!");
+        }
     }
 }

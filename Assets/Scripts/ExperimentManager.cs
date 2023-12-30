@@ -101,5 +101,6 @@ public class ExperimentManager : MonoBehaviour
     private void OutputResult()
     {
         Debug.Log("Result");
+        gameManager.FinishExperiment();
     }
 }
