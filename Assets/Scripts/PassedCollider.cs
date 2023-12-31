@@ -10,8 +10,8 @@ public class PassedCollider : MonoBehaviour
     {
         if (other.CompareTag("Block"))
         {
-            experimentManager.SpawnBlock();
-            Destroy(other.gameObject);
+            //experimentManager.SpawnBlock();
+            //Destroy(other.gameObject);
         }
     }
 }

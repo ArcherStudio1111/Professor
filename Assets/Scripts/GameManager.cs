@@ -6,6 +6,8 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    public float timeScaleVar = 1f;
+
     public event Action OnGameStart;
 
     [SerializeField] private ExperimentManager experimentManager;
@@ -47,6 +49,11 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    private void Update()
+    {
+        Time.timeScale = timeScaleVar;
     }
 
     private void ReadParameters()

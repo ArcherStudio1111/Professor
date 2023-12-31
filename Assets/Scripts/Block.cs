@@ -19,8 +19,8 @@ public class Block : MonoBehaviour
             destroyTimer += Time.deltaTime;
             if (destroyTimer >= destroyInterval && isDestroying)
             {
-                experimentManager.SpawnBlock();
-                Destroy(gameObject);
+                //experimentManager.SpawnBlock();
+                //Destroy(gameObject);
             }
         }
         else if(rb.velocity != Vector3.zero || rb.angularVelocity != Vector3.zero)
