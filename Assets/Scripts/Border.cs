@@ -10,8 +10,8 @@ public class Border : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Block"))
         {
-            experimentManager.SpawnBlock();
-            Destroy(collision.gameObject);
+            //experimentManager.SpawnBlock();
+            //Destroy(collision.gameObject);
         }
     }
 }

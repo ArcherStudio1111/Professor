@@ -71,6 +71,7 @@ public class ExperimentManager : MonoBehaviour
 
     public void SpawnBlock()
     {
+        /*
         if (isUpDirection && currentBlock >= blocksUp.Count)
         {
             currentBlock = 0;
@@ -96,6 +97,7 @@ public class ExperimentManager : MonoBehaviour
                 currentBlock++;
             }
         }
+        */
     }
 
     private void OutputResult()
