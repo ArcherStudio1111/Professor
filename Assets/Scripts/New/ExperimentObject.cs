@@ -5,34 +5,33 @@ using UnityEngine;
 public class ExperimentObject : MonoBehaviour
 {
     [Header("Status")]
+    public bool isSpawnLeftBlock;
     public bool isStartingGame;
     public bool restartGame;
     public bool isRandomOriginPosition;
+    public bool isRandonOriginRotation;
     public Vector3 originPosition;
+    public Vector3 originRotation;
 
     [Header("Blocks")]
-    [SerializeField] private Transform leftBlock;
-    [SerializeField] private Transform rightBlock;
+    [SerializeField] private GameObject blockLeftPivot;
+    [SerializeField] private GameObject blockRightPivot;
 
-    private float randCircleRadius = 2;
-    private float randMinPosZ = 1.46f;
-    private float randMaxPosZ = 4.07f;
-    private Vector2 randCircleOffset = new Vector2(54.771f, 3.4105f);
+    private GameObject blockClone;
+
+    private float randCircleRadius = 1.25f;
+    private float randMinPosY = 2f;
+    private float randMaxPosY = 3f;
 
     private void Awake()
     {
         Time.timeScale = 0;
+        SpawnBlock();
     }
 
-    private void Update()
+    public void StartGame()
     {
-        StartGame();
-        RestartGame();
-    }
-
-    private void StartGame()
-    {
-        if (isStartingGame)
+        if(Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
@@ -42,19 +41,34 @@ public class ExperimentObject : MonoBehaviour
         }
     }
 
-    private void RestartGame()
+    public void RestartGame()
     {
-        if (restartGame)
+        Time.timeScale = 0;
+
+        //Reset position and rotation
+        if (isRandomOriginPosition)
         {
-            restartGame = false;
-            isStartingGame = false;
-            if (isRandomOriginPosition)
-            {
-                var randCirclePosition = randCircleRadius * Random.insideUnitCircle + randCircleOffset;
-                originPosition = new Vector3(randCirclePosition.x, randCirclePosition.y, Random.Range(randMinPosZ, randMaxPosZ));
-            }
-            leftBlock.localPosition = originPosition;
-            rightBlock.localPosition = originPosition;
+            var randCirclePosition = randCircleRadius * Random.insideUnitCircle;
+            originPosition = new Vector3(randCirclePosition.x, Random.Range(randMinPosY, randMaxPosY), randCirclePosition.y);
+        }
+        if (isRandonOriginRotation)
+        {
+            originRotation = new Vector3(Random.Range(0f, 180f), Random.Range(0f, 180f), Random.Range(0f, 180f));
+        }
+
+        Destroy(blockClone);
+        SpawnBlock();
+    }
+
+    private void SpawnBlock()
+    {
+        if (isSpawnLeftBlock)
+        {
+            blockClone = Instantiate(blockLeftPivot, originPosition, Quaternion.Euler(originRotation));
+        }
+        else
+        {
+            blockClone = Instantiate(blockRightPivot, originPosition, Quaternion.Euler(originRotation));
         }
     }
 }
