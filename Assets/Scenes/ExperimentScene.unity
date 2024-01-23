@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 314808656}
   - component: {fileID: 314808655}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: SpawnBlockButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1401,7 +1401,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1268574853}
         m_TargetAssemblyTypeName: ExperimentObject, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: SpawnBlock
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
