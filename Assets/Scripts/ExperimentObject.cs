@@ -82,11 +82,11 @@ public class ExperimentObject : MonoBehaviour
     {
         if (isSpawnLeftBlock)
         {
-            blockClone = Instantiate(blockLeftPivot, originPosition, Quaternion.Euler(originRotation), transform);
+            blockClone = Instantiate(blockLeftPivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
         }
         else
         {
-            blockClone = Instantiate(blockRightPivot, originPosition, Quaternion.Euler(originRotation), transform);
+            blockClone = Instantiate(blockRightPivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
         }
     }
 
