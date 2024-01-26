@@ -6587,8 +6587,76 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: maxRandomY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: minRandomY
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: randomRadius
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
       propertyPath: isSpawnLeftBlock
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originRotation.x
+      value: 97.08951
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originRotation.y
+      value: 11.602635
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originRotation.z
+      value: 61.482967
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: isRandomLinearVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: isRandonOriginRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originLinearVelocity.x
+      value: 1.0301104
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originLinearVelocity.y
+      value: -1.4762186
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originLinearVelocity.z
+      value: -1.4542542
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originAngularVelocity.x
+      value: 123.75013
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originAngularVelocity.y
+      value: 46.18399
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: originAngularVelocity.z
+      value: 111.77346
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: maxRandomAngularVelocity.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: maxRandomAngularVelocity.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      propertyPath: maxRandomAngularVelocity.z
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8268367898779234699, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
       propertyPath: m_Name
@@ -6600,7 +6668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8768918679279308859, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 8768918679279308859, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
       propertyPath: m_LocalPosition.z
