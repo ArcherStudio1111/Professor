@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ParametersForTestingButton : MonoBehaviour
 {
+    /*
     public GameManager.Parameters parametersForTesting;
 
     private GameManager gameManager;
@@ -17,4 +18,5 @@ public class ParametersForTestingButton : MonoBehaviour
     {
         gameManager.testingParameter = parametersForTesting;
     }
+    */
 }

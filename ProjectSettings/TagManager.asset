@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameManager
   - Block
+  - ExperimentManager
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    /*
     public float timeScaleVar = 1f;
 
     public event Action OnGameStart;
@@ -120,4 +121,5 @@ public class GameManager : MonoBehaviour
             Debug.Log("All Experiment Finish Successfully!");
         }
     }
+    */
 }

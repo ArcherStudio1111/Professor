@@ -9,14 +9,6 @@ public class ExperimentObject : MonoBehaviour
     public bool isSpawnLeftBlock;
     public bool isAutoTest;
 
-    [Header("Test Result")]
-    public float passedTimes;
-    public float obstructedTimes;
-    public float outBoundTimes;
-    public float passedAndObstructedTimes;
-    public float passedEfficiency;
-    public float obstructedEfficiency;
-
     [Header("Position")]
     public bool isRandomOriginPosition;
     public float randomRadius = 1.25f;
@@ -48,6 +40,12 @@ public class ExperimentObject : MonoBehaviour
     public BlockPassStatus blockPassStatus;
 
     private GameObject blockClone;
+    private ExperimentManager experimentManager;
+
+    private void Awake()
+    {
+        experimentManager = GameObject.FindGameObjectWithTag("ExperimentManager").GetComponent<ExperimentManager>();
+    }
 
     public void StartGame()
     {
@@ -135,6 +133,7 @@ public class ExperimentObject : MonoBehaviour
         block.blockFinishEvent -= OnblockFinish;
         OutPutResult(blockPassStatus);
         Destroy(blockClone);
+        experimentManager.CountTestTime();
         SpawnBlock();
     }
 
@@ -143,21 +142,18 @@ public class ExperimentObject : MonoBehaviour
         switch (blockPassStatus)
         {
             case BlockPassStatus.Passed:
-                passedTimes++;
-                passedAndObstructedTimes++;
-                passedEfficiency = (passedTimes - obstructedTimes) / passedAndObstructedTimes;
-                obstructedEfficiency = (obstructedTimes - passedTimes) / passedAndObstructedTimes;
+                experimentManager.passedTimes++;
+                experimentManager.passedAndObstructedTimes++;
+                experimentManager.CalculateEfficiency();
                 break;
             case BlockPassStatus.Obstructed:
-                obstructedTimes++;
-                passedAndObstructedTimes++;
-                passedEfficiency = (passedTimes - obstructedTimes) / passedAndObstructedTimes;
-                obstructedEfficiency = (obstructedTimes - passedTimes) / passedAndObstructedTimes;
+                experimentManager.obstructedTimes++;
+                experimentManager.passedAndObstructedTimes++;
+                experimentManager.CalculateEfficiency();
                 break;
             case BlockPassStatus.OutBound: 
-                outBoundTimes++;
+                experimentManager.outBoundTimes++;
                 break;
         }
-
     }
 }
