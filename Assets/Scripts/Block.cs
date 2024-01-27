@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] private ExperimentManager experimentManager;
+    public event Action blockFinishEvent;
+
     [SerializeField] private Rigidbody rb;
 
     private bool isDestroying;
@@ -19,8 +21,7 @@ public class Block : MonoBehaviour
             destroyTimer += Time.deltaTime;
             if (destroyTimer >= destroyInterval && isDestroying)
             {
-                //experimentManager.SpawnBlock();
-                //Destroy(gameObject);
+                blockFinishEvent.Invoke();
             }
         }
         else if(rb.velocity != Vector3.zero || rb.angularVelocity != Vector3.zero)

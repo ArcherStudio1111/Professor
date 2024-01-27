@@ -17,8 +17,8 @@ public class ExperimentManager : MonoBehaviour
     [SerializeField] private GameObject upObjects;
     [SerializeField] private GameObject downObjects;
 
-    private bool isUpDirection = true; 
-    private int currentBlock = 0;
+    //private bool isUpDirection = true; 
+    //private int currentBlock = 0;
     private GameManager gameManager;
 
     private void Awake()

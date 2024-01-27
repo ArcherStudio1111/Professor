@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExperimentObject : MonoBehaviour
 {
     [Header("Status")]
     public bool isSpawnLeftBlock;
+    public bool isAutoTest;
+
+    [Header("Test Result")]
+    public float passedTimes;
+    public float obstructedTimes;
+    public float outBoundTimes;
+    public float passedAndObstructedTimes;
+    public float passedEfficiency;
+    public float obstructedEfficiency;
 
     [Header("Position")]
     public bool isRandomOriginPosition;
@@ -34,12 +44,10 @@ public class ExperimentObject : MonoBehaviour
     [SerializeField] private GameObject blockLeftPivot;
     [SerializeField] private GameObject blockRightPivot;
 
-    private GameObject blockClone;
+    public enum BlockPassStatus { Passed, Obstructed, OutBound }
+    public BlockPassStatus blockPassStatus;
 
-    private void Start()
-    {
-        SpawnBlock();
-    }
+    private GameObject blockClone;
 
     public void StartGame()
     {
@@ -55,13 +63,17 @@ public class ExperimentObject : MonoBehaviour
 
     public void SpawnBlock()
     {
-        Time.timeScale = 0;
+        if (!isAutoTest)
+        {
+            Time.timeScale = 0;
+        }
         SetRandomPositionRotation();
         if(blockClone != null)
         {
             Destroy(blockClone);
         }
         InstantiateBlock();
+        InitializeStatus();
         SetRandomVelocities();
     }
 
@@ -90,6 +102,12 @@ public class ExperimentObject : MonoBehaviour
         }
     }
 
+    private void InitializeStatus()
+    {
+        blockClone.GetComponentInChildren<Block>().blockFinishEvent += OnblockFinish;
+        blockPassStatus = BlockPassStatus.Obstructed;
+    }
+
     private void SetRandomVelocities()
     {
         if (isRandomLinearVelocity)
@@ -109,5 +127,37 @@ public class ExperimentObject : MonoBehaviour
                 Random.Range(minRandomAngularVelocity.z, maxRandomAngularVelocity.z));
         }
         blockClone.GetComponentInChildren<Rigidbody>().angularVelocity = originAngularVelocity;
+    }
+
+    public void OnblockFinish()
+    {
+        var block = blockClone.GetComponentInChildren<Block>();
+        block.blockFinishEvent -= OnblockFinish;
+        OutPutResult(blockPassStatus);
+        Destroy(blockClone);
+        SpawnBlock();
+    }
+
+    public void OutPutResult(BlockPassStatus blockPassStatus)
+    {
+        switch (blockPassStatus)
+        {
+            case BlockPassStatus.Passed:
+                passedTimes++;
+                passedAndObstructedTimes++;
+                passedEfficiency = (passedTimes - obstructedTimes) / passedAndObstructedTimes;
+                obstructedEfficiency = (obstructedTimes - passedTimes) / passedAndObstructedTimes;
+                break;
+            case BlockPassStatus.Obstructed:
+                obstructedTimes++;
+                passedAndObstructedTimes++;
+                passedEfficiency = (passedTimes - obstructedTimes) / passedAndObstructedTimes;
+                obstructedEfficiency = (obstructedTimes - passedTimes) / passedAndObstructedTimes;
+                break;
+            case BlockPassStatus.OutBound: 
+                outBoundTimes++;
+                break;
+        }
+
     }
 }

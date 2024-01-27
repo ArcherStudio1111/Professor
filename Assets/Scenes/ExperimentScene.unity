@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6179,7 +6179,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973708489}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6586,78 +6586,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: maxRandomY
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: minRandomY
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: randomRadius
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: isSpawnLeftBlock
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originRotation.x
-      value: 97.08951
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originRotation.y
-      value: 11.602635
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originRotation.z
-      value: 61.482967
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: isRandomLinearVelocity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: isRandonOriginRotation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originLinearVelocity.x
-      value: 1.0301104
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originLinearVelocity.y
-      value: -1.4762186
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originLinearVelocity.z
-      value: -1.4542542
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originAngularVelocity.x
-      value: 123.75013
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originAngularVelocity.y
-      value: 46.18399
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: originAngularVelocity.z
-      value: 111.77346
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: maxRandomAngularVelocity.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: maxRandomAngularVelocity.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
-      propertyPath: maxRandomAngularVelocity.z
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 8268367898779234699, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
       propertyPath: m_Name
       value: ExperimentObject
