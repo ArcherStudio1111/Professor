@@ -7,7 +7,6 @@ public class ExperimentObject : MonoBehaviour
 {
     [Header("Status")]
     public bool isSpawnLeftBlock;
-    public bool isAutoTest;
 
     [Header("Position")]
     public bool isRandomOriginPosition;
@@ -37,7 +36,7 @@ public class ExperimentObject : MonoBehaviour
     [SerializeField] private GameObject blockRightPivot;
 
     public enum BlockPassStatus { Passed, Obstructed, OutBound }
-    public BlockPassStatus blockPassStatus;
+    [HideInInspector] public BlockPassStatus blockPassStatus;
 
     private GameObject blockClone;
     private ExperimentManager experimentManager;
@@ -47,24 +46,8 @@ public class ExperimentObject : MonoBehaviour
         experimentManager = GameObject.FindGameObjectWithTag("ExperimentManager").GetComponent<ExperimentManager>();
     }
 
-    public void StartGame()
-    {
-        if(Time.timeScale == 0)
-        {
-            Time.timeScale = 1;
-        }
-        else
-        {
-            Time.timeScale = 0;
-        }
-    }
-
     public void SpawnBlock()
     {
-        if (!isAutoTest)
-        {
-            Time.timeScale = 0;
-        }
         SetRandomPositionRotation();
         if(blockClone != null)
         {

@@ -21,7 +21,7 @@ public class Block : MonoBehaviour
             destroyTimer += Time.deltaTime;
             if (destroyTimer >= destroyInterval && isDestroying)
             {
-                blockFinishEvent.Invoke();
+                blockFinishEvent?.Invoke();
             }
         }
         else if(rb.velocity != Vector3.zero || rb.angularVelocity != Vector3.zero)

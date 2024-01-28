@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ExperimentManager : MonoBehaviour
@@ -36,6 +38,7 @@ public class ExperimentManager : MonoBehaviour
         {
             experimentObject.SpawnBlock();
         }
+        Time.timeScale = 0;
     }
 
     public void CalculateEfficiency()
@@ -50,13 +53,29 @@ public class ExperimentManager : MonoBehaviour
         if(totalTestTimes <= 0)
         {
             Time.timeScale = 0;
-            Debug.Log("passed Times: " + passedTimes);
-            Debug.Log("obstructed Times: " + obstructedTimes);
-            Debug.Log("outBound Times: " + outBoundTimes);
-            Debug.Log("passed And Obstructed Times: " + passedAndObstructedTimes);
-            Debug.Log("passed Efficiency: " + passedEfficiency);
-            Debug.Log("obstructed Efficiency: " + obstructedEfficiency);
-            Debug.Log("Test Over!");
+            OutPutResult();
         }
+    }
+
+    private void OutPutResult()
+    {
+        var outputPath = Environment.CurrentDirectory + @"\TestResult\"  + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + "-TestResult.txt";
+        using (StreamWriter testResult = new StreamWriter(outputPath))
+        {
+            testResult.WriteLine("passed Times: " + passedTimes);
+            testResult.WriteLine("obstructed Times: " + obstructedTimes);
+            testResult.WriteLine("outBound Times: " + outBoundTimes);
+            testResult.WriteLine("passed And Obstructed Times: " + passedAndObstructedTimes);
+            testResult.WriteLine("passed Efficiency: " + passedEfficiency);
+            testResult.WriteLine("obstructed Efficiency: " + obstructedEfficiency);
+        }
+
+        Debug.Log("passed Times: " + passedTimes);
+        Debug.Log("obstructed Times: " + obstructedTimes);
+        Debug.Log("outBound Times: " + outBoundTimes);
+        Debug.Log("passed And Obstructed Times: " + passedAndObstructedTimes);
+        Debug.Log("passed Efficiency: " + passedEfficiency);
+        Debug.Log("obstructed Efficiency: " + obstructedEfficiency);
+        Debug.Log("Test Over!");
     }
 }

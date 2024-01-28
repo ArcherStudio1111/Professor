@@ -1,0 +1,6 @@
+passed Times: 13
+obstructed Times: 800
+outBound Times: 187
+passed And Obstructed Times: 813
+passed Efficiency: -0.9680197
+obstructed Efficiency: 0.9680197

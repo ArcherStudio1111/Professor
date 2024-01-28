@@ -571,13 +571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSpawnLeftBlock: 1
-  isAutoTest: 0
-  passedTimes: 0
-  obstructedTimes: 0
-  outBoundTimes: 0
-  passedAndObstructedTimes: 0
-  passedEfficiency: 0
-  obstructedEfficiency: 0
   isRandomOriginPosition: 0
   randomRadius: 0.9
   minRandomY: 1.5
