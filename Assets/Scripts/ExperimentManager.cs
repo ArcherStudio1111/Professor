@@ -11,6 +11,13 @@ public class ExperimentManager : MonoBehaviour
     public bool isSpawnLeftBlock;
     public float totalTestTimes;
 
+    [Header("Test Result")]
+    public float passedTimes;
+    public float obstructedTimes;
+    public float outBoundTimes;
+    public float passedAndObstructedTimes;
+    public float overallYield;
+
     [Header("Position")]
     public bool isRandomOriginPosition = true;
     public float randomRadius = 0.9f;
@@ -29,13 +36,6 @@ public class ExperimentManager : MonoBehaviour
     public bool isRandomAngularVelocity = true;
     public Vector3 minRandomAngularVelocity = Vector3.zero;
     public Vector3 maxRandomAngularVelocity = new Vector3(300, 300, 300);
-
-    [Header("Test Result")]
-    public float passedTimes;
-    public float obstructedTimes;
-    public float outBoundTimes;
-    public float passedAndObstructedTimes;
-    public float overallYield;
     
     [Space(20)]
     [SerializeField] private List<ExperimentObject> experimentObjects = new List<ExperimentObject>();

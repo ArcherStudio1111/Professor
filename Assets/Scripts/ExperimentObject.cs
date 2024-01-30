@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class ExperimentObject : MonoBehaviour
 {
@@ -114,13 +118,13 @@ public class ExperimentObject : MonoBehaviour
     {
         var block = blockClone.GetComponentInChildren<Block>();
         block.blockFinishEvent -= OnblockFinish;
-        OutPutResult(blockPassStatus);
+        SendResultToManager(blockPassStatus);
         Destroy(blockClone);
         experimentManager.CountTestTime();
         SpawnBlock();
     }
 
-    public void OutPutResult(BlockPassStatus blockPassStatus)
+    public void SendResultToManager(BlockPassStatus blockPassStatus)
     {
         switch (blockPassStatus)
         {
@@ -133,10 +137,36 @@ public class ExperimentObject : MonoBehaviour
                 experimentManager.obstructedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
+                OutPutAbnormalResult();
                 break;
             case BlockPassStatus.OutBound: 
                 experimentManager.outBoundTimes++;
                 break;
+        }
+    }
+
+    private void OutPutAbnormalResult()
+    {
+        if (!isSpawnLeftBlock)
+        {
+            //Get physics parameters
+            var staticFriction = blockClone.GetComponentInChildren<MeshCollider>().material.staticFriction;
+            var dynamicFriction = blockClone.GetComponentInChildren<MeshCollider>().material.dynamicFriction;
+            var bounciness = blockClone.GetComponentInChildren<MeshCollider>().material.bounciness;
+
+            //Output result
+            var outputPath = Environment.CurrentDirectory + @"\AbnormalResult\" + SceneManager.GetActiveScene().name + "-AbnormalResult" + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + ".txt";
+            using (StreamWriter testResult = new StreamWriter(outputPath))
+            {
+                testResult.WriteLine("Block Color: Blue");
+                testResult.WriteLine("originPosition: " + originPosition);
+                testResult.WriteLine("originRotation: " + originRotation);
+                testResult.WriteLine("originLinearVelocity: " + originLinearVelocity);
+                testResult.WriteLine("originAngularVelocity: " + originAngularVelocity);
+                testResult.WriteLine("staticFriction: " + staticFriction);
+                testResult.WriteLine("dynamicFriction: " + dynamicFriction);
+                testResult.WriteLine("bounciness: " + bounciness);
+            }
         }
     }
 }
