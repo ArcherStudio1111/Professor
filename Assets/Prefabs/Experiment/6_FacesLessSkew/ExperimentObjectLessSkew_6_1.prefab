@@ -173,8 +173,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.7412639, y: 10.847978, z: 0.029777527}
-  m_Center: {x: -1.0260334, y: 3.3571744, z: 0.7491474}
+  m_Size: {x: 2.7412639, y: 8.797181, z: 0.029777527}
+  m_Center: {x: -1.0260334, y: 4.3825727, z: 0.7491474}
 --- !u!114 &858562727234455347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,8 +275,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.035686493, y: 10.517509, z: 2.8005042}
-  m_Center: {x: -0.48215675, y: 3.1902256, z: -0.043034315}
+  m_Size: {x: 0.035686493, y: 8.466713, z: 2.8005042}
+  m_Center: {x: -0.48215675, y: 4.215624, z: -0.043034315}
 --- !u!114 &5268273222022356588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,8 +342,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.7412603, y: 11.034661, z: 0.029777527}
-  m_Center: {x: -1.0260319, y: 3.4880528, z: 0.7491474}
+  m_Size: {x: 2.7412603, y: 9.038552, z: 0.029777527}
+  m_Center: {x: -1.0260319, y: 4.4861073, z: 0.7491474}
 --- !u!114 &4545379050666403048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,8 +409,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.035686493, y: 10.910361, z: 2.5961843}
-  m_Center: {x: -0.48215675, y: 3.425902, z: -0.11297345}
+  m_Size: {x: 0.035686493, y: 8.886909, z: 2.5961843}
+  m_Center: {x: -0.48215675, y: 4.4376283, z: -0.11297345}
 --- !u!114 &3689306630582451812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5ba713ac8d44542841f4f0c34b7710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpawnLeftBlock: 0
+  isSpawnRedBlock: 0
+  isReportAbnormalData: 0
   isRandomOriginPosition: 1
   randomRadius: 0.9
   minRandomY: 1.5
@@ -519,8 +520,8 @@ MonoBehaviour:
   minRandomAngularVelocity: {x: 0, y: 0, z: 0}
   maxRandomAngularVelocity: {x: 300, y: 300, z: 300}
   originAngularVelocity: {x: 123.75013, y: 46.18399, z: 111.77346}
-  blockLeftPivot: {fileID: 890211366573500849, guid: ca3dc630d6b1c6a4692636deec00760d, type: 3}
-  blockRightPivot: {fileID: 30819838356785655, guid: 5d126ad6f7622644cb0ef60de795671e, type: 3}
+  blockLeftPivot: {fileID: 7350903181915914355, guid: bbe07c17d0a025a41bdf737efe2615b4, type: 3}
+  blockRightPivot: {fileID: 4549458332463960379, guid: 27678ff9362d6f94c99acc7a5a9a4c63, type: 3}
   blockPassStatus: 0
 --- !u!1 &9133926428508119973
 GameObject:

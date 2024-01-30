@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class ExperimentManager : MonoBehaviour
 {
     [Header("Test Status")]
-    public bool isSpawnLeftBlock;
+    public bool isSpawnRedBlock;
+    public bool isReportAbnormalData;
     public float totalTestTimes;
 
     [Header("Test Result")]
@@ -68,7 +69,8 @@ public class ExperimentManager : MonoBehaviour
     private void InitializeParameters(ExperimentObject experimentObject)
     {
         //Status
-        experimentObject.isSpawnLeftBlock = isSpawnLeftBlock;
+        experimentObject.isSpawnRedBlock = isSpawnRedBlock;
+        experimentObject.isReportAbnormalData = isReportAbnormalData;
 
         //Position
         experimentObject.isRandomOriginPosition = isRandomOriginPosition;
@@ -92,7 +94,7 @@ public class ExperimentManager : MonoBehaviour
 
     public void CalculateEfficiency()
     {
-        if (!isSpawnLeftBlock)
+        if (!isSpawnRedBlock)
         {
             overallYield = passedTimes / passedAndObstructedTimes;
         }
@@ -117,7 +119,7 @@ public class ExperimentManager : MonoBehaviour
             testResult.WriteLine("obstructed Times: " + obstructedTimes);
             testResult.WriteLine("outBound Times: " + outBoundTimes);
             testResult.WriteLine("passed And Obstructed Times: " + passedAndObstructedTimes);
-            if (!isSpawnLeftBlock)
+            if (!isSpawnRedBlock)
             {
                 testResult.WriteLine("Overall Yield(blue): " + overallYield);
                 testResult.WriteLine("Block Color: Blue");

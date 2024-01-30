@@ -1,6 +1,0 @@
-passed Times: 0
-obstructed Times: 5
-outBound Times: 0
-passed And Obstructed Times: 5
-passed Efficiency: -1
-obstructed Efficiency: 1

@@ -10,7 +10,8 @@ using Random = UnityEngine.Random;
 public class ExperimentObject : MonoBehaviour
 {
     [Header("Status")]
-    public bool isSpawnLeftBlock;
+    public bool isSpawnRedBlock;
+    public bool isReportAbnormalData;
 
     [Header("Position")]
     public bool isRandomOriginPosition;
@@ -77,7 +78,7 @@ public class ExperimentObject : MonoBehaviour
 
     private void InstantiateBlock()
     {
-        if (isSpawnLeftBlock)
+        if (isSpawnRedBlock)
         {
             blockClone = Instantiate(blockLeftPivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
         }
@@ -132,7 +133,7 @@ public class ExperimentObject : MonoBehaviour
                 experimentManager.passedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
-                if (isSpawnLeftBlock)
+                if (isSpawnRedBlock && isReportAbnormalData)
                 {
                     OutPutAbnormalResult("Red");
                 }
@@ -141,7 +142,7 @@ public class ExperimentObject : MonoBehaviour
                 experimentManager.obstructedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
-                if (!isSpawnLeftBlock)
+                if (!isSpawnRedBlock && isReportAbnormalData)
                 {
                     OutPutAbnormalResult("Blue");
                 }
