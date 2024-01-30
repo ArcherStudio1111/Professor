@@ -48,7 +48,7 @@ public class ExperimentManager : MonoBehaviour
 
     public void CalculateEfficiency()
     {
-        if (isSpawnLeftBlock)
+        if (!isSpawnLeftBlock)
         {
             overallYield = passedTimes / passedAndObstructedTimes;
         }
@@ -73,10 +73,10 @@ public class ExperimentManager : MonoBehaviour
             testResult.WriteLine("obstructed Times: " + obstructedTimes);
             testResult.WriteLine("outBound Times: " + outBoundTimes);
             testResult.WriteLine("passed And Obstructed Times: " + passedAndObstructedTimes);
-            if (isSpawnLeftBlock)
+            if (!isSpawnLeftBlock)
             {
-                testResult.WriteLine("Block Color: Blue");
                 testResult.WriteLine("Overall Yield(blue): " + overallYield);
+                testResult.WriteLine("Block Color: Blue");
             }
             else
             {

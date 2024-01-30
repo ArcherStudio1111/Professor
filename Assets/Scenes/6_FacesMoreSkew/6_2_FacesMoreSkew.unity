@@ -2958,13 +2958,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c833e6ac0ef328341b37555fa08bd3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTestTimes: 5
+  isSpawnLeftBlock: 0
+  totalTestTimes: 10
   passedTimes: 0
   obstructedTimes: 0
   outBoundTimes: 0
   passedAndObstructedTimes: 0
-  passedEfficiency: 0
-  obstructedEfficiency: 0
+  overallYield: 0
   experimentObjects:
   - {fileID: 1560268633}
   - {fileID: 663821652}
