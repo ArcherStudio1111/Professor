@@ -132,12 +132,19 @@ public class ExperimentObject : MonoBehaviour
                 experimentManager.passedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
+                if (isSpawnLeftBlock)
+                {
+                    OutPutAbnormalResult("Red");
+                }
                 break;
             case BlockPassStatus.Obstructed:
                 experimentManager.obstructedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
-                OutPutAbnormalResult();
+                if (!isSpawnLeftBlock)
+                {
+                    OutPutAbnormalResult("Blue");
+                }
                 break;
             case BlockPassStatus.OutBound: 
                 experimentManager.outBoundTimes++;
@@ -145,28 +152,25 @@ public class ExperimentObject : MonoBehaviour
         }
     }
 
-    private void OutPutAbnormalResult()
+    private void OutPutAbnormalResult(string blockColor)
     {
-        if (!isSpawnLeftBlock)
-        {
-            //Get physics parameters
-            var staticFriction = blockClone.GetComponentInChildren<MeshCollider>().material.staticFriction;
-            var dynamicFriction = blockClone.GetComponentInChildren<MeshCollider>().material.dynamicFriction;
-            var bounciness = blockClone.GetComponentInChildren<MeshCollider>().material.bounciness;
+        //Get physics parameters
+        var staticFriction = blockClone.GetComponentInChildren<MeshCollider>().material.staticFriction;
+        var dynamicFriction = blockClone.GetComponentInChildren<MeshCollider>().material.dynamicFriction;
+        var bounciness = blockClone.GetComponentInChildren<MeshCollider>().material.bounciness;
 
-            //Output result
-            var outputPath = Environment.CurrentDirectory + @"\AbnormalResult\" + SceneManager.GetActiveScene().name + "-AbnormalResult" + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + ".txt";
-            using (StreamWriter testResult = new StreamWriter(outputPath))
-            {
-                testResult.WriteLine("Block Color: Blue");
-                testResult.WriteLine("originPosition: " + originPosition);
-                testResult.WriteLine("originRotation: " + originRotation);
-                testResult.WriteLine("originLinearVelocity: " + originLinearVelocity);
-                testResult.WriteLine("originAngularVelocity: " + originAngularVelocity);
-                testResult.WriteLine("staticFriction: " + staticFriction);
-                testResult.WriteLine("dynamicFriction: " + dynamicFriction);
-                testResult.WriteLine("bounciness: " + bounciness);
-            }
+        //Output result
+        var outputPath = Environment.CurrentDirectory + @"\AbnormalResult\" + SceneManager.GetActiveScene().name + "-AbnormalResult" + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + ".txt";
+        using (StreamWriter testResult = new StreamWriter(outputPath))
+        {
+            testResult.WriteLine("Block Color: " + blockColor);
+            testResult.WriteLine("origin Position: " + originPosition);
+            testResult.WriteLine("origin Rotation: " + originRotation);
+            testResult.WriteLine("origin Linear Velocity: " + originLinearVelocity);
+            testResult.WriteLine("origin Angular Velocity: " + originAngularVelocity);
+            testResult.WriteLine("static Friction: " + staticFriction);
+            testResult.WriteLine("dynamic Friction: " + dynamicFriction);
+            testResult.WriteLine("bounciness: " + bounciness);
         }
     }
 }

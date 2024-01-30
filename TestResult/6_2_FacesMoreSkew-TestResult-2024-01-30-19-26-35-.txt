@@ -1,0 +1,5 @@
+passed Times: 32
+obstructed Times: 4
+outBound Times: 14
+passed And Obstructed Times: 36
+Block Color: Red

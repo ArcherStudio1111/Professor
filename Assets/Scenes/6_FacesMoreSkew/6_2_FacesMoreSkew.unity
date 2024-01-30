@@ -2958,8 +2958,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c833e6ac0ef328341b37555fa08bd3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSpawnLeftBlock: 0
-  totalTestTimes: 10
+  isSpawnLeftBlock: 1
+  totalTestTimes: 50
+  passedTimes: 0
+  obstructedTimes: 0
+  outBoundTimes: 0
+  passedAndObstructedTimes: 0
+  overallYield: 0
   isRandomOriginPosition: 1
   randomRadius: 0.9
   minRandomY: 1.5
@@ -2971,11 +2976,6 @@ MonoBehaviour:
   isRandomAngularVelocity: 1
   minRandomAngularVelocity: {x: 0, y: 0, z: 0}
   maxRandomAngularVelocity: {x: 300, y: 300, z: 300}
-  passedTimes: 0
-  obstructedTimes: 0
-  outBoundTimes: 0
-  passedAndObstructedTimes: 0
-  overallYield: 0
   experimentObjects:
   - {fileID: 1560268633}
   - {fileID: 663821652}

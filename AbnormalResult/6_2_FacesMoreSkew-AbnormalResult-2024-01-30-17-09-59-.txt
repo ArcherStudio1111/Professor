@@ -1,5 +1,0 @@
-Block Color: Blue
-originPosition: (-0.56, 2.42, -0.18)
-originRotation: (348.02, 13.25, 331.74)
-originLinearVelocity: (0.75, -1.58, -1.28)
-originAngularVelocity: (244.20, 235.48, 29.21)
