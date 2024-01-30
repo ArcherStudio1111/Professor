@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExperimentManager : MonoBehaviour
 {
@@ -34,11 +35,14 @@ public class ExperimentManager : MonoBehaviour
 
     public void SpawnBlocks()
     {
-        foreach (var experimentObject in experimentObjects)
+        if(totalTestTimes > 0)
         {
-            experimentObject.SpawnBlock();
+            foreach (var experimentObject in experimentObjects)
+            {
+                experimentObject.SpawnBlock();
+            }
+            Time.timeScale = 0;
         }
-        Time.timeScale = 0;
     }
 
     public void CalculateEfficiency()
@@ -59,7 +63,11 @@ public class ExperimentManager : MonoBehaviour
 
     private void OutPutResult()
     {
-        var outputPath = Environment.CurrentDirectory + @"\TestResult\"  + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + "-TestResult.txt";
+        var outputPath = Environment.CurrentDirectory + @"\TestResult\"
++ SceneManager.GetActiveScene().name
++ "-TestResult"
++ DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-")
++ ".txt";
         using (StreamWriter testResult = new StreamWriter(outputPath))
         {
             testResult.WriteLine("passed Times: " + passedTimes);
