@@ -11,6 +11,25 @@ public class ExperimentManager : MonoBehaviour
     public bool isSpawnLeftBlock;
     public float totalTestTimes;
 
+    [Header("Position")]
+    public bool isRandomOriginPosition = true;
+    public float randomRadius = 0.9f;
+    public float minRandomY = 1.5f;
+    public float maxRandomY = 4f;
+
+    [Header("Rotation")]
+    public bool isRandonOriginRotation = true;
+
+    [Header("Linear Velocity")]
+    public bool isRandomLinearVelocity = true;
+    public Vector3 minRandomLinearVelocity = new Vector3(-2, -2, -2);
+    public Vector3 maxRandomLinearVelocity = new Vector3(2, 0, 2);
+
+    [Header("Angular Velocity")]
+    public bool isRandomAngularVelocity = true;
+    public Vector3 minRandomAngularVelocity = Vector3.zero;
+    public Vector3 maxRandomAngularVelocity = new Vector3(300, 300, 300);
+
     [Header("Test Result")]
     public float passedTimes;
     public float obstructedTimes;
@@ -39,11 +58,36 @@ public class ExperimentManager : MonoBehaviour
         {
             foreach (var experimentObject in experimentObjects)
             {
-                experimentObject.isSpawnLeftBlock = isSpawnLeftBlock;
+                InitializeParameters(experimentObject);
                 experimentObject.SpawnBlock();
             }
             Time.timeScale = 0;
         }
+    }
+
+    private void InitializeParameters(ExperimentObject experimentObject)
+    {
+        //Status
+        experimentObject.isSpawnLeftBlock = isSpawnLeftBlock;
+
+        //Position
+        experimentObject.isRandomOriginPosition = isRandomOriginPosition;
+        experimentObject.randomRadius = randomRadius;
+        experimentObject.minRandomY = minRandomY;
+        experimentObject.maxRandomY = maxRandomY;
+
+        //Rotation
+        experimentObject.isRandonOriginRotation = isRandonOriginRotation;
+
+        //Linear Velocity
+        experimentObject.isRandomLinearVelocity = isRandomLinearVelocity;
+        experimentObject.minRandomLinearVelocity = minRandomLinearVelocity;
+        experimentObject.maxRandomLinearVelocity = maxRandomLinearVelocity;
+
+        //Angular Velocity
+        experimentObject.isRandomAngularVelocity = isRandomAngularVelocity;
+        experimentObject.minRandomAngularVelocity = minRandomAngularVelocity;
+        experimentObject.maxRandomAngularVelocity = maxRandomAngularVelocity;
     }
 
     public void CalculateEfficiency()

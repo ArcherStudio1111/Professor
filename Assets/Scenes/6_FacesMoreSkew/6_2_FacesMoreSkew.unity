@@ -2960,6 +2960,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSpawnLeftBlock: 0
   totalTestTimes: 10
+  isRandomOriginPosition: 1
+  randomRadius: 0.9
+  minRandomY: 1.5
+  maxRandomY: 4
+  isRandonOriginRotation: 1
+  isRandomLinearVelocity: 1
+  minRandomLinearVelocity: {x: -2, y: -2, z: -2}
+  maxRandomLinearVelocity: {x: 2, y: 0, z: 2}
+  isRandomAngularVelocity: 1
+  minRandomAngularVelocity: {x: 0, y: 0, z: 0}
+  maxRandomAngularVelocity: {x: 300, y: 300, z: 300}
   passedTimes: 0
   obstructedTimes: 0
   outBoundTimes: 0
