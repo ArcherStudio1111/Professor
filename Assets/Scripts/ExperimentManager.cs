@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class ExperimentManager : MonoBehaviour
 {
     [Header("Test Status")]
+    public bool isSpawnLeftBlock;
     public float totalTestTimes;
 
     [Header("Test Result")]
@@ -15,8 +16,7 @@ public class ExperimentManager : MonoBehaviour
     public float obstructedTimes;
     public float outBoundTimes;
     public float passedAndObstructedTimes;
-    public float passedEfficiency;
-    public float obstructedEfficiency;
+    public float overallYield;
     
     [Space(20)]
     [SerializeField] private List<ExperimentObject> experimentObjects = new List<ExperimentObject>();
@@ -39,6 +39,7 @@ public class ExperimentManager : MonoBehaviour
         {
             foreach (var experimentObject in experimentObjects)
             {
+                experimentObject.isSpawnLeftBlock = isSpawnLeftBlock;
                 experimentObject.SpawnBlock();
             }
             Time.timeScale = 0;
@@ -47,8 +48,10 @@ public class ExperimentManager : MonoBehaviour
 
     public void CalculateEfficiency()
     {
-        passedEfficiency = (passedTimes - obstructedTimes) / passedAndObstructedTimes;
-        obstructedEfficiency = (obstructedTimes - passedTimes) / passedAndObstructedTimes;
+        if (isSpawnLeftBlock)
+        {
+            overallYield = passedTimes / passedAndObstructedTimes;
+        }
     }
 
     public void CountTestTime()
@@ -63,27 +66,23 @@ public class ExperimentManager : MonoBehaviour
 
     private void OutPutResult()
     {
-        var outputPath = Environment.CurrentDirectory + @"\TestResult\"
-+ SceneManager.GetActiveScene().name
-+ "-TestResult"
-+ DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-")
-+ ".txt";
+        var outputPath = Environment.CurrentDirectory + @"\TestResult\" + SceneManager.GetActiveScene().name + "-TestResult" + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + ".txt";
         using (StreamWriter testResult = new StreamWriter(outputPath))
         {
             testResult.WriteLine("passed Times: " + passedTimes);
             testResult.WriteLine("obstructed Times: " + obstructedTimes);
             testResult.WriteLine("outBound Times: " + outBoundTimes);
             testResult.WriteLine("passed And Obstructed Times: " + passedAndObstructedTimes);
-            testResult.WriteLine("passed Efficiency: " + passedEfficiency);
-            testResult.WriteLine("obstructed Efficiency: " + obstructedEfficiency);
+            if (isSpawnLeftBlock)
+            {
+                testResult.WriteLine("Block Color: Blue");
+                testResult.WriteLine("Overall Yield(blue): " + overallYield);
+            }
+            else
+            {
+                testResult.WriteLine("Block Color: Red");
+            }
         }
-
-        Debug.Log("passed Times: " + passedTimes);
-        Debug.Log("obstructed Times: " + obstructedTimes);
-        Debug.Log("outBound Times: " + outBoundTimes);
-        Debug.Log("passed And Obstructed Times: " + passedAndObstructedTimes);
-        Debug.Log("passed Efficiency: " + passedEfficiency);
-        Debug.Log("obstructed Efficiency: " + obstructedEfficiency);
         Debug.Log("Test Over!");
     }
 }
