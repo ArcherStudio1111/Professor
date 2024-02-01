@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public bool isOscillate;
     public float minBounce;
     public float maxBounce;
     public float minFriction;
@@ -48,29 +49,33 @@ public class Block : MonoBehaviour
 
     private void OscillateParameters()
     {
-        var bounceRange = maxBounce - minBounce;
-        var frictionRange = maxFriction - minFriction;
-        oscillateTimer += Time.deltaTime;
-        var changePercent = oscillateTimer / oscillateInterval;
-        if (oscillateTimer >= oscillateInterval)
+        if(isOscillate) 
         {
-            isOscillateAdd = !isOscillateAdd;
-            oscillateTimer = 0;
-        }
+            var bounceRange = maxBounce - minBounce;
+            var frictionRange = maxFriction - minFriction;
+            oscillateTimer += Time.deltaTime;
+            var changePercent = oscillateTimer / oscillateInterval;
 
-        if (isOscillateAdd)
-        {
+            if (oscillateTimer >= oscillateInterval)
+            {
+                isOscillateAdd = !isOscillateAdd;
+                oscillateTimer = 0;
+            }
 
-            meshCollider.material.staticFriction = minFriction + changePercent * frictionRange;
-            meshCollider.material.dynamicFriction = minFriction + changePercent * frictionRange;
-            meshCollider.material.bounciness = minBounce + changePercent * bounceRange;
+            if (isOscillateAdd)
+            {
 
-        }
-        else
-        {
-            meshCollider.material.staticFriction = maxFriction - changePercent * frictionRange;
-            meshCollider.material.dynamicFriction = maxFriction - changePercent * frictionRange;
-            meshCollider.material.bounciness = maxBounce - changePercent * bounceRange;
+                meshCollider.material.staticFriction = minFriction + changePercent * frictionRange;
+                meshCollider.material.dynamicFriction = minFriction + changePercent * frictionRange;
+                meshCollider.material.bounciness = minBounce + changePercent * bounceRange;
+
+            }
+            else
+            {
+                meshCollider.material.staticFriction = maxFriction - changePercent * frictionRange;
+                meshCollider.material.dynamicFriction = maxFriction - changePercent * frictionRange;
+                meshCollider.material.bounciness = maxBounce - changePercent * bounceRange;
+            }
         }
     }
 }

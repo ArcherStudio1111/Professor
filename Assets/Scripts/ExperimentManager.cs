@@ -11,6 +11,7 @@ public class ExperimentManager : MonoBehaviour
     public bool isSpawnRedBlock;
     public bool isReportAbnormalData;
     public float totalTestTimes;
+    public int experimentObjectNum = 1;
 
     [Header("Test Result")]
     public float passedTimes;
@@ -37,9 +38,21 @@ public class ExperimentManager : MonoBehaviour
     public bool isRandomAngularVelocity = true;
     public Vector3 minRandomAngularVelocity = Vector3.zero;
     public Vector3 maxRandomAngularVelocity = new Vector3(300, 300, 300);
-    
+
+    [Header("Block Parameters")]
+    public bool isOscillate;
+    public float minBounce = 0.502f;
+    public float maxBounce = 0.498f;
+    public float minFriction = 0.001f;
+    public float maxFriction = 0.001f;
+    public float oscillateInterval = 0.2f;
+
     [Space(20)]
-    [SerializeField] private List<ExperimentObject> experimentObjects = new List<ExperimentObject>();
+    public ExperimentObject experimentObjectForTest;
+
+    private List<ExperimentObject> experimentObjects = new List<ExperimentObject>();
+    private float experimentObjectInterval = 5f;
+    private int experimentObjectRowNum = 5;
 
     public void StartGame()
     {
@@ -57,12 +70,24 @@ public class ExperimentManager : MonoBehaviour
     {
         if(totalTestTimes > 0)
         {
+            SpawnExperimentObjects();
             foreach (var experimentObject in experimentObjects)
             {
                 InitializeParameters(experimentObject);
                 experimentObject.SpawnBlock();
             }
             Time.timeScale = 0;
+        }
+    }
+
+    private void SpawnExperimentObjects()
+    {
+        for (int i = 0; i < experimentObjectNum; i++)
+        {
+            var experimentObjectClone = Instantiate(experimentObjectForTest, 
+                new Vector3(i % experimentObjectRowNum, 0, i / experimentObjectRowNum) * experimentObjectInterval,
+                Quaternion.identity, transform);
+            experimentObjects.Add(experimentObjectClone);
         }
     }
 
@@ -90,6 +115,14 @@ public class ExperimentManager : MonoBehaviour
         experimentObject.isRandomAngularVelocity = isRandomAngularVelocity;
         experimentObject.minRandomAngularVelocity = minRandomAngularVelocity;
         experimentObject.maxRandomAngularVelocity = maxRandomAngularVelocity;
+
+        //Block Parameters
+        experimentObject.isOscillate = isOscillate;
+        experimentObject.minBounce = minBounce;
+        experimentObject.maxBounce = maxBounce;
+        experimentObject.minFriction = minFriction;
+        experimentObject.maxFriction = maxFriction;
+        experimentObject.oscillateInterval = oscillateInterval;
     }
 
     public void CalculateEfficiency()

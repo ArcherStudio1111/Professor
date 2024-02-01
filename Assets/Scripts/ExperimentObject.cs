@@ -37,8 +37,16 @@ public class ExperimentObject : MonoBehaviour
     public Vector3 originAngularVelocity;
 
     [Header("Blocks")]
-    [SerializeField] private GameObject blockLeftPivot;
-    [SerializeField] private GameObject blockRightPivot;
+    [SerializeField] private GameObject blockRedPivot;
+    [SerializeField] private GameObject blockBluePivot;
+
+    [Header("Block Parameters")]
+    public bool isOscillate;
+    public float minBounce;
+    public float maxBounce;
+    public float minFriction;
+    public float maxFriction;
+    public float oscillateInterval;
 
     public enum BlockPassStatus { Passed, Obstructed, OutBound }
     [HideInInspector] public BlockPassStatus blockPassStatus;
@@ -80,18 +88,26 @@ public class ExperimentObject : MonoBehaviour
     {
         if (isSpawnRedBlock)
         {
-            blockClone = Instantiate(blockLeftPivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
+            blockClone = Instantiate(blockRedPivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
         }
         else
         {
-            blockClone = Instantiate(blockRightPivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
+            blockClone = Instantiate(blockBluePivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
         }
     }
 
     private void InitializeStatus()
     {
-        blockClone.GetComponentInChildren<Block>().blockFinishEvent += OnblockFinish;
         blockPassStatus = BlockPassStatus.Obstructed;
+
+        var blockScript =  blockClone.GetComponentInChildren<Block>();
+        blockScript.blockFinishEvent += OnblockFinish;
+        blockScript.isOscillate = isOscillate;
+        blockScript.minBounce = minBounce;
+        blockScript.maxBounce = maxBounce;
+        blockScript.minFriction = minFriction;
+        blockScript.maxFriction = maxFriction;
+        blockScript.oscillateInterval = oscillateInterval;
     }
 
     private void SetRandomVelocities()

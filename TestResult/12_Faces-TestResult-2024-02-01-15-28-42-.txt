@@ -1,0 +1,6 @@
+passed Times: 637
+obstructed Times: 162
+outBound Times: 201
+passed And Obstructed Times: 799
+Overall Yield(blue): 0.7972466
+Block Color: Blue

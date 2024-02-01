@@ -421,8 +421,8 @@ MonoBehaviour:
   minRandomAngularVelocity: {x: 0, y: 0, z: 0}
   maxRandomAngularVelocity: {x: 300, y: 300, z: 300}
   originAngularVelocity: {x: 123.75013, y: 46.18399, z: 111.77346}
-  blockLeftPivot: {fileID: 7350903181915914355, guid: bbe07c17d0a025a41bdf737efe2615b4, type: 3}
-  blockRightPivot: {fileID: 4549458332463960379, guid: 27678ff9362d6f94c99acc7a5a9a4c63, type: 3}
+  blockRedPivot: {fileID: 7350903181915914355, guid: bbe07c17d0a025a41bdf737efe2615b4, type: 3}
+  blockBluePivot: {fileID: 4549458332463960379, guid: 27678ff9362d6f94c99acc7a5a9a4c63, type: 3}
   blockPassStatus: 0
 --- !u!1 &7779282688517533619
 GameObject:
