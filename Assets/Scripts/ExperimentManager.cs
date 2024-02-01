@@ -9,6 +9,7 @@ public class ExperimentManager : MonoBehaviour
 {
     [Header("Test Status")]
     public bool isSpawnRedBlock;
+    public bool isCatchAbnormalData;
     public bool isReportAbnormalData;
     public int totalTestTimes;
     public int experimentObjectNum = 1;
@@ -104,6 +105,7 @@ public class ExperimentManager : MonoBehaviour
         //Status
         experimentObject.isSpawnRedBlock = isSpawnRedBlock;
         experimentObject.isReportAbnormalData = isReportAbnormalData;
+        experimentObject.isCatchAbnormalData = isCatchAbnormalData;
 
         //Position
         experimentObject.isRandomOriginPosition = isRandomOriginPosition;
@@ -158,7 +160,7 @@ public class ExperimentManager : MonoBehaviour
 
     private void OutPutResult()
     {
-        var outputPath = Environment.CurrentDirectory + @"\TestResult\" + SceneManager.GetActiveScene().name + "-TestResult" + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + ".txt";
+        var outputPath = Environment.CurrentDirectory + @"\Assets\ExperimentResult\TestResult\" + SceneManager.GetActiveScene().name + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + "TestResult" + ".txt";
         using (StreamWriter testResult = new StreamWriter(outputPath))
         {
             testResult.WriteLine("passed Times: " + passedTimes);

@@ -12,6 +12,7 @@ public class ExperimentObject : MonoBehaviour
     [Header("Status")]
     public bool isSpawnRedBlock;
     public bool isReportAbnormalData;
+    public bool isCatchAbnormalData;
 
     [Header("Position")]
     public bool isRandomOriginPosition;
@@ -151,18 +152,34 @@ public class ExperimentObject : MonoBehaviour
                 experimentManager.passedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
-                if (isSpawnRedBlock && isReportAbnormalData)
+                if (isSpawnRedBlock)
                 {
-                    OutPutAbnormalResult("Red");
+                    if (isReportAbnormalData)
+                    {
+                        OutPutAbnormalResult("Red");
+                    }
+                    if (isCatchAbnormalData)
+                    {
+                        Debug.Log("Catched abnormal data!");
+                        Time.timeScale = 0;
+                    }
                 }
                 break;
             case BlockPassStatus.Obstructed:
                 experimentManager.obstructedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
-                if (!isSpawnRedBlock && isReportAbnormalData)
+                if (!isSpawnRedBlock)
                 {
-                    OutPutAbnormalResult("Blue");
+                    if (isReportAbnormalData)
+                    {
+                        OutPutAbnormalResult("Blue");
+                    }
+                    if (isCatchAbnormalData)
+                    {
+                        Debug.Log("Catched abnormal data!");
+                        Time.timeScale = 0;
+                    }
                 }
                 break;
             case BlockPassStatus.OutBound: 
@@ -179,7 +196,7 @@ public class ExperimentObject : MonoBehaviour
         var bounciness = blockClone.GetComponentInChildren<MeshCollider>().material.bounciness;
 
         //Output result
-        var outputPath = Environment.CurrentDirectory + @"\AbnormalResult\" + SceneManager.GetActiveScene().name + "-AbnormalResult" + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + ".txt";
+        var outputPath = Environment.CurrentDirectory + @"\Assets\ExperimentResult\AbnormalResult\" + SceneManager.GetActiveScene().name + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + "AbnormalResult" + ".txt";
         using (StreamWriter testResult = new StreamWriter(outputPath))
         {
             testResult.WriteLine("Block Color: " + blockColor);
