@@ -589,6 +589,13 @@ MonoBehaviour:
   originAngularVelocity: {x: 123.75013, y: 46.18399, z: 111.77346}
   blockRedPivot: {fileID: 8055611003433802277, guid: ad1f39a7a1fdc8545ab52c232173ea0a, type: 3}
   blockBluePivot: {fileID: 441959687290693991, guid: 8ccd0b7b3e1742b49a8dc371d6bd859d, type: 3}
+  isOscillate: 0
+  minBounce: 0
+  maxBounce: 0
+  minFriction: 0
+  maxFriction: 0
+  oscillateInterval: 0
+  blockScale: 0
   blockPassStatus: 0
 --- !u!1 &8329972154146416717
 GameObject:

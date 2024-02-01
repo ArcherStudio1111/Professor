@@ -10,7 +10,7 @@ public class ExperimentManager : MonoBehaviour
     [Header("Test Status")]
     public bool isSpawnRedBlock;
     public bool isReportAbnormalData;
-    public float totalTestTimes;
+    public int totalTestTimes;
     public int experimentObjectNum = 1;
 
     [Header("Test Result")]
@@ -25,19 +25,23 @@ public class ExperimentManager : MonoBehaviour
     public float randomRadius = 0.9f;
     public float minRandomY = 1.5f;
     public float maxRandomY = 4f;
+    public Vector3 originPosition;
 
     [Header("Rotation")]
     public bool isRandonOriginRotation = true;
+    public Vector3 originRotation;
 
     [Header("Linear Velocity")]
     public bool isRandomLinearVelocity = true;
     public Vector3 minRandomLinearVelocity = new Vector3(-2, -2, -2);
     public Vector3 maxRandomLinearVelocity = new Vector3(2, 0, 2);
+    public Vector3 originLinearVelocity;
 
     [Header("Angular Velocity")]
     public bool isRandomAngularVelocity = true;
     public Vector3 minRandomAngularVelocity = Vector3.zero;
     public Vector3 maxRandomAngularVelocity = new Vector3(300, 300, 300);
+    public Vector3 originAngularVelocity;
 
     [Header("Block Parameters")]
     public bool isOscillate;
@@ -46,6 +50,7 @@ public class ExperimentManager : MonoBehaviour
     public float minFriction = 0.001f;
     public float maxFriction = 0.001f;
     public float oscillateInterval = 0.2f;
+    public float blockScale = 0.95f;
 
     [Space(20)]
     public ExperimentObject experimentObjectForTest;
@@ -68,15 +73,18 @@ public class ExperimentManager : MonoBehaviour
 
     public void SpawnBlocks()
     {
-        if(totalTestTimes > 0)
+        if(totalTestTimes > 0 && FindFirstObjectByType<ExperimentObject>() == null)
         {
             SpawnExperimentObjects();
-            foreach (var experimentObject in experimentObjects)
+            if (experimentObjects.Count > 0)
             {
-                InitializeParameters(experimentObject);
-                experimentObject.SpawnBlock();
+                foreach (var experimentObject in experimentObjects)
+                {
+                    InitializeParameters(experimentObject);
+                    experimentObject.SpawnBlock();
+                }
+                Time.timeScale = 0;
             }
-            Time.timeScale = 0;
         }
     }
 
@@ -102,19 +110,23 @@ public class ExperimentManager : MonoBehaviour
         experimentObject.randomRadius = randomRadius;
         experimentObject.minRandomY = minRandomY;
         experimentObject.maxRandomY = maxRandomY;
+        experimentObject.originPosition = originPosition;
 
         //Rotation
         experimentObject.isRandonOriginRotation = isRandonOriginRotation;
+        experimentObject.originRotation = originRotation;
 
         //Linear Velocity
         experimentObject.isRandomLinearVelocity = isRandomLinearVelocity;
         experimentObject.minRandomLinearVelocity = minRandomLinearVelocity;
         experimentObject.maxRandomLinearVelocity = maxRandomLinearVelocity;
+        experimentObject.originLinearVelocity = originLinearVelocity;
 
         //Angular Velocity
         experimentObject.isRandomAngularVelocity = isRandomAngularVelocity;
         experimentObject.minRandomAngularVelocity = minRandomAngularVelocity;
         experimentObject.maxRandomAngularVelocity = maxRandomAngularVelocity;
+        experimentObject.originAngularVelocity = originAngularVelocity;
 
         //Block Parameters
         experimentObject.isOscillate = isOscillate;
@@ -123,6 +135,7 @@ public class ExperimentManager : MonoBehaviour
         experimentObject.minFriction = minFriction;
         experimentObject.maxFriction = maxFriction;
         experimentObject.oscillateInterval = oscillateInterval;
+        experimentObject.blockScale = blockScale;
     }
 
     public void CalculateEfficiency()

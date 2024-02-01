@@ -47,6 +47,7 @@ public class ExperimentObject : MonoBehaviour
     public float minFriction;
     public float maxFriction;
     public float oscillateInterval;
+    public float blockScale;
 
     public enum BlockPassStatus { Passed, Obstructed, OutBound }
     [HideInInspector] public BlockPassStatus blockPassStatus;
@@ -99,6 +100,7 @@ public class ExperimentObject : MonoBehaviour
     private void InitializeStatus()
     {
         blockPassStatus = BlockPassStatus.Obstructed;
+        blockClone.transform.localScale = Vector3.one * blockScale;
 
         var blockScript =  blockClone.GetComponentInChildren<Block>();
         blockScript.blockFinishEvent += OnblockFinish;

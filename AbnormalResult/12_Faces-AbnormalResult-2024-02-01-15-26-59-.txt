@@ -1,8 +1,0 @@
-Block Color: Blue
-origin Position: (-0.54, 2.03, -0.59)
-origin Rotation: (292.99, 215.26, 158.70)
-origin Linear Velocity: (1.35, -1.22, 1.92)
-origin Angular Velocity: (11.97, 106.97, 296.79)
-static Friction: 0.001
-dynamic Friction: 0.001
-bounciness: 0.4494471

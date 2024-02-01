@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.034986205, y: 0.9512093, z: -0.044646025, w: -0.30328804}
   m_LocalPosition: {x: 54.851, y: 1.6976634, z: 27.073029}
-  m_LocalScale: {x: 0.9700001, y: 0.9700001, z: 0.9700001}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6101212439071654880}
@@ -67,6 +67,14 @@ PrefabInstance:
     - target: {fileID: 2397616240986783213, guid: eec5133c64f93ca42a7b4a84032dca3c, type: 3}
       propertyPath: oscillateInterval
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729728534564610994, guid: eec5133c64f93ca42a7b4a84032dca3c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729728534564610994, guid: eec5133c64f93ca42a7b4a84032dca3c, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3729728534564610994, guid: eec5133c64f93ca42a7b4a84032dca3c, type: 3}
       propertyPath: m_CollisionDetection

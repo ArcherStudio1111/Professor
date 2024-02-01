@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.8673445, z: -0, w: -0.49770835}
   m_LocalPosition: {x: 2.092, y: 0, z: -0.486}
-  m_LocalScale: {x: 0.9700001, y: 0.9700001, z: 0.9700001}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5161006269706626493}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95542b0bf6c819942a1a24dc1a4625e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOscillate: 0
   minBounce: 0.452
   maxBounce: 0.448
   minFriction: 0.001
