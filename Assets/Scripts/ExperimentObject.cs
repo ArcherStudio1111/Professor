@@ -12,7 +12,7 @@ public class ExperimentObject : MonoBehaviour
     [Header("Status")]
     public bool isSpawnRedBlock;
     public bool isReportAbnormalData;
-    public bool isCatchAbnormalData;
+    public bool isCatchAbnormalObject;
 
     [Header("Position")]
     public bool isRandomOriginPosition;
@@ -37,10 +37,6 @@ public class ExperimentObject : MonoBehaviour
     public Vector3 maxRandomAngularVelocity;
     public Vector3 originAngularVelocity;
 
-    [Header("Blocks")]
-    [SerializeField] private GameObject blockRedPivot;
-    [SerializeField] private GameObject blockBluePivot;
-
     [Header("Block Parameters")]
     public bool isOscillate;
     public float minBounce;
@@ -49,6 +45,11 @@ public class ExperimentObject : MonoBehaviour
     public float maxFriction;
     public float oscillateInterval;
     public float blockScale;
+
+    [Header("For Developer")]
+    [SerializeField] private GameObject blockRedPivot;
+    [SerializeField] private GameObject blockBluePivot;
+    [SerializeField] private GameObject abnormalMark;
 
     public enum BlockPassStatus { Passed, Obstructed, OutBound }
     [HideInInspector] public BlockPassStatus blockPassStatus;
@@ -88,18 +89,13 @@ public class ExperimentObject : MonoBehaviour
 
     private void InstantiateBlock()
     {
-        if (isSpawnRedBlock)
-        {
-            blockClone = Instantiate(blockRedPivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
-        }
-        else
-        {
-            blockClone = Instantiate(blockBluePivot, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
-        }
+        var blockToSpawn = isSpawnRedBlock ? blockRedPivot :  blockBluePivot;
+        blockClone = Instantiate(blockToSpawn, transform.position + originPosition, Quaternion.Euler(originRotation), transform);
     }
 
     private void InitializeStatus()
     {
+        abnormalMark.SetActive(false);
         blockPassStatus = BlockPassStatus.Obstructed;
         blockClone.transform.localScale = Vector3.one * blockScale;
 
@@ -139,6 +135,13 @@ public class ExperimentObject : MonoBehaviour
         var block = blockClone.GetComponentInChildren<Block>();
         block.blockFinishEvent -= OnblockFinish;
         SendResultToManager(blockPassStatus);
+        ProcessAbnormal();
+        StartCoroutine(WaitRespawn());
+    }
+
+    private IEnumerator WaitRespawn()
+    {
+        yield return new WaitForSeconds(0.5f);
         Destroy(blockClone);
         experimentManager.CountTestTime();
         SpawnBlock();
@@ -152,35 +155,11 @@ public class ExperimentObject : MonoBehaviour
                 experimentManager.passedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
-                if (isSpawnRedBlock)
-                {
-                    if (isReportAbnormalData)
-                    {
-                        OutPutAbnormalResult("Red");
-                    }
-                    if (isCatchAbnormalData)
-                    {
-                        Debug.Log("Catched abnormal data!");
-                        Time.timeScale = 0;
-                    }
-                }
                 break;
             case BlockPassStatus.Obstructed:
                 experimentManager.obstructedTimes++;
                 experimentManager.passedAndObstructedTimes++;
                 experimentManager.CalculateEfficiency();
-                if (!isSpawnRedBlock)
-                {
-                    if (isReportAbnormalData)
-                    {
-                        OutPutAbnormalResult("Blue");
-                    }
-                    if (isCatchAbnormalData)
-                    {
-                        Debug.Log("Catched abnormal data!");
-                        Time.timeScale = 0;
-                    }
-                }
                 break;
             case BlockPassStatus.OutBound: 
                 experimentManager.outBoundTimes++;
@@ -188,7 +167,24 @@ public class ExperimentObject : MonoBehaviour
         }
     }
 
-    private void OutPutAbnormalResult(string blockColor)
+    private void ProcessAbnormal()
+    {
+        if ((blockPassStatus == BlockPassStatus.Passed && isSpawnRedBlock) || blockPassStatus == BlockPassStatus.Obstructed && !isSpawnRedBlock)
+        {
+            if (isReportAbnormalData)
+            {
+                OutPutAbnormalResult();
+            }
+            if (isCatchAbnormalObject)
+            {
+                Debug.Log("Catched abnormal data!");
+                Time.timeScale = 0;
+                abnormalMark.SetActive(true);
+            }
+        }
+    }
+
+    private void OutPutAbnormalResult()
     {
         //Get physics parameters
         var staticFriction = blockClone.GetComponentInChildren<MeshCollider>().material.staticFriction;
@@ -196,14 +192,15 @@ public class ExperimentObject : MonoBehaviour
         var bounciness = blockClone.GetComponentInChildren<MeshCollider>().material.bounciness;
 
         //Output result
-        var outputPath = Environment.CurrentDirectory + @"\Assets\ExperimentResult\AbnormalResult\" + SceneManager.GetActiveScene().name + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + "AbnormalResult" + ".txt";
+        var outputPath = Environment.CurrentDirectory + @"\Assets\ExperimentResult\AbnormalResult\" + SceneManager.GetActiveScene().name + "\\" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-") + "AbnormalResult" + ".txt";
         using (StreamWriter testResult = new StreamWriter(outputPath))
         {
-            testResult.WriteLine("Block Color: " + blockColor);
-            testResult.WriteLine("origin Position: " + originPosition);
-            testResult.WriteLine("origin Rotation: " + originRotation);
-            testResult.WriteLine("origin Linear Velocity: " + originLinearVelocity);
-            testResult.WriteLine("origin Angular Velocity: " + originAngularVelocity);
+            testResult.WriteLine("Scene Name: " + SceneManager.GetActiveScene().name);
+            testResult.WriteLine("Block Color: " + (isSpawnRedBlock ? "Red" : "Blue"));
+            testResult.WriteLine("origin Position: " + originPosition.ToString("F9"));
+            testResult.WriteLine("origin Rotation: " + originRotation.ToString("F9"));
+            testResult.WriteLine("origin Linear Velocity: " + originLinearVelocity.ToString("F9"));
+            testResult.WriteLine("origin Angular Velocity: " + originAngularVelocity.ToString("F9"));
             testResult.WriteLine("static Friction: " + staticFriction);
             testResult.WriteLine("dynamic Friction: " + dynamicFriction);
             testResult.WriteLine("bounciness: " + bounciness);

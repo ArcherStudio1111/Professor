@@ -9,7 +9,7 @@ public class ExperimentManager : MonoBehaviour
 {
     [Header("Test Status")]
     public bool isSpawnRedBlock;
-    public bool isCatchAbnormalData;
+    public bool isCatchAbnormalObject;
     public bool isReportAbnormalData;
     public int totalTestTimes;
     public int experimentObjectNum = 1;
@@ -105,7 +105,7 @@ public class ExperimentManager : MonoBehaviour
         //Status
         experimentObject.isSpawnRedBlock = isSpawnRedBlock;
         experimentObject.isReportAbnormalData = isReportAbnormalData;
-        experimentObject.isCatchAbnormalData = isCatchAbnormalData;
+        experimentObject.isCatchAbnormalObject = isCatchAbnormalObject;
 
         //Position
         experimentObject.isRandomOriginPosition = isRandomOriginPosition;
@@ -160,9 +160,11 @@ public class ExperimentManager : MonoBehaviour
 
     private void OutPutResult()
     {
-        var outputPath = Environment.CurrentDirectory + @"\Assets\ExperimentResult\TestResult\" + SceneManager.GetActiveScene().name + DateTime.Now.ToString("-yyyy-MM-dd-HH-mm-ss-") + "TestResult" + ".txt";
+        var outputPath = Environment.CurrentDirectory + @"\Assets\ExperimentResult\TestResult\" + SceneManager.GetActiveScene().name + "\\" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-") + "TestResult" + ".txt";
         using (StreamWriter testResult = new StreamWriter(outputPath))
         {
+            testResult.WriteLine("Scene Name: " + SceneManager.GetActiveScene().name);
+            testResult.WriteLine("Block Color: " + (isSpawnRedBlock ? "Red" : "Blue"));
             testResult.WriteLine("passed Times: " + passedTimes);
             testResult.WriteLine("obstructed Times: " + obstructedTimes);
             testResult.WriteLine("outBound Times: " + outBoundTimes);
@@ -170,11 +172,6 @@ public class ExperimentManager : MonoBehaviour
             if (!isSpawnRedBlock)
             {
                 testResult.WriteLine("Overall Yield(blue): " + overallYield);
-                testResult.WriteLine("Block Color: Blue");
-            }
-            else
-            {
-                testResult.WriteLine("Block Color: Red");
             }
         }
         Debug.Log("Test Over!");

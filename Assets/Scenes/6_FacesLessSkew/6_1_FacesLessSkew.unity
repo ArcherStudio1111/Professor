@@ -2813,7 +2813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSpawnRedBlock: 0
-  isReportAbnormalData: 0
+  isCatchAbnormalObject: 0
+  isReportAbnormalData: 1
   totalTestTimes: 1000
   experimentObjectNum: 10
   passedTimes: 0
@@ -2825,19 +2826,24 @@ MonoBehaviour:
   randomRadius: 0.9
   minRandomY: 1.5
   maxRandomY: 4
+  originPosition: {x: 0, y: 0, z: 0}
   isRandonOriginRotation: 1
+  originRotation: {x: 0, y: 0, z: 0}
   isRandomLinearVelocity: 1
   minRandomLinearVelocity: {x: -2, y: -2, z: -2}
   maxRandomLinearVelocity: {x: 2, y: 0, z: 2}
+  originLinearVelocity: {x: 0, y: 0, z: 0}
   isRandomAngularVelocity: 1
   minRandomAngularVelocity: {x: 0, y: 0, z: 0}
   maxRandomAngularVelocity: {x: 300, y: 300, z: 300}
+  originAngularVelocity: {x: 0, y: 0, z: 0}
   isOscillate: 0
   minBounce: 0.502
   maxBounce: 0.498
   minFriction: 0.001
   maxFriction: 0.001
   oscillateInterval: 0.2
+  blockScale: 0.95
   experimentObjectForTest: {fileID: 6010646203086666495, guid: 474ae3b57746fe64eb9d0bc48bb81dc3, type: 3}
 --- !u!4 &781271622
 Transform:

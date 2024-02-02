@@ -6628,40 +6628,48 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: maxBounce
+      value: 0.452
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: minBounce
+      value: 0.448
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: blockScale
       value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isOscillate
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: totalTestTimes
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originPosition.x
-      value: -0.5284381
+      value: 0.5014484
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originPosition.y
-      value: 3.74338
+      value: 1.76531
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originPosition.z
-      value: -0.437508
+      value: -0.1601579
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originRotation.x
-      value: 153.7518
+      value: 255.3536
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originRotation.y
-      value: 273.6151
+      value: 99.43715
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originRotation.z
-      value: 226.8501
+      value: 354.6813
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: experimentObjectNum
@@ -6669,51 +6677,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isCatchAbnormalData
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isReportAbnormalData
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: isCatchAbnormalObject
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isRandomLinearVelocity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isRandomOriginPosition
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isRandonOriginRotation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originLinearVelocity.x
-      value: -1.65319
+      value: -0.06633401
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originLinearVelocity.y
-      value: -1.486416
+      value: -0.414243
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originLinearVelocity.z
-      value: 0.6498045
+      value: 1.288826
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isRandomAngularVelocity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originAngularVelocity.x
-      value: 262.0506
+      value: 233.3376
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originAngularVelocity.y
-      value: 149.6573
+      value: 147.3577
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originAngularVelocity.z
-      value: 152.7137
+      value: 268.1439
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: minRandomLinearVelocity.x
