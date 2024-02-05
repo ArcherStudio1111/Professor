@@ -64,14 +64,56 @@ public class ExperimentObject : MonoBehaviour
 
     public void SpawnBlock()
     {
+        InitializeParameters();
         SetRandomPositionRotation();
-        if(blockClone != null)
+        if (blockClone != null)
         {
             Destroy(blockClone);
         }
         InstantiateBlock();
         InitializeStatus();
         SetRandomVelocities();
+        SingleModeProcessing();
+    }
+
+    private void InitializeParameters()
+    {
+        //Status
+        isSpawnRedBlock = experimentManager.isSpawnRedBlock;
+        isReportAbnormalData = experimentManager.isReportAbnormalData;
+        isCatchAbnormalObject = experimentManager.isCatchAbnormalObject;
+
+        //Position
+        isRandomOriginPosition = experimentManager.isRandomOriginPosition;
+        randomRadius = experimentManager.randomRadius;
+        minRandomY = experimentManager.minRandomY;
+        maxRandomY = experimentManager.maxRandomY;
+        originPosition = experimentManager.originPosition;
+
+        //Rotation
+        isRandonOriginRotation = experimentManager.isRandonOriginRotation;
+        originRotation = experimentManager.originRotation;
+
+        //Linear Velocity
+        isRandomLinearVelocity = experimentManager.isRandomLinearVelocity;
+        minRandomLinearVelocity = experimentManager.minRandomLinearVelocity;
+        maxRandomLinearVelocity = experimentManager.maxRandomLinearVelocity;
+        originLinearVelocity = experimentManager.originLinearVelocity;
+
+        //Angular Velocity
+        isRandomAngularVelocity = experimentManager.isRandomAngularVelocity;
+        minRandomAngularVelocity = experimentManager.minRandomAngularVelocity;
+        maxRandomAngularVelocity = experimentManager.maxRandomAngularVelocity;
+        originAngularVelocity = experimentManager.originAngularVelocity;
+
+        //Block Parameters
+        isOscillate = experimentManager.isOscillate;
+        minBounce = experimentManager.minBounce;
+        maxBounce = experimentManager.maxBounce;
+        minFriction = experimentManager.minFriction;
+        maxFriction = experimentManager.maxFriction;
+        oscillateInterval = experimentManager.oscillateInterval;
+        blockScale = experimentManager.blockScale;
     }
 
     private void SetRandomPositionRotation()
@@ -130,12 +172,24 @@ public class ExperimentObject : MonoBehaviour
         blockClone.GetComponentInChildren<Rigidbody>().angularVelocity = originAngularVelocity;
     }
 
+    private void SingleModeProcessing()
+    {
+        if (experimentManager.isSingleMode)
+        {
+            experimentManager.originPosition = originPosition;
+            experimentManager.originRotation = originRotation;
+            experimentManager.originLinearVelocity = originLinearVelocity;
+            experimentManager.originAngularVelocity = originAngularVelocity;
+        }
+    }
+
     public void OnblockFinish()
     {
         var block = blockClone.GetComponentInChildren<Block>();
         block.blockFinishEvent -= OnblockFinish;
         SendResultToManager(blockPassStatus);
         ProcessAbnormal();
+        experimentManager.CountTestTime();
         StartCoroutine(WaitRespawn());
     }
 
@@ -143,7 +197,6 @@ public class ExperimentObject : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Destroy(blockClone);
-        experimentManager.CountTestTime();
         SpawnBlock();
     }
 

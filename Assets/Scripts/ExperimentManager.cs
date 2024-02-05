@@ -9,6 +9,7 @@ public class ExperimentManager : MonoBehaviour
 {
     [Header("Test Status")]
     public bool isSpawnRedBlock;
+    public bool isSingleMode;
     public bool isCatchAbnormalObject;
     public bool isReportAbnormalData;
     public int totalTestTimes;
@@ -74,14 +75,13 @@ public class ExperimentManager : MonoBehaviour
 
     public void SpawnBlocks()
     {
-        if(totalTestTimes > 0 && FindFirstObjectByType<ExperimentObject>() == null)
+        if(totalTestTimes > 0)
         {
             SpawnExperimentObjects();
             if (experimentObjects.Count > 0)
             {
                 foreach (var experimentObject in experimentObjects)
                 {
-                    InitializeParameters(experimentObject);
                     experimentObject.SpawnBlock();
                 }
                 Time.timeScale = 0;
@@ -91,53 +91,25 @@ public class ExperimentManager : MonoBehaviour
 
     private void SpawnExperimentObjects()
     {
+        foreach (var experimentObject in experimentObjects)
+        {
+            Destroy(experimentObject.gameObject);
+        }
+        experimentObjects.Clear();
+
         for (int i = 0; i < experimentObjectNum; i++)
         {
             var experimentObjectClone = Instantiate(experimentObjectForTest, 
                 new Vector3(i % experimentObjectRowNum, 0, i / experimentObjectRowNum) * experimentObjectInterval,
                 Quaternion.identity, transform);
             experimentObjects.Add(experimentObjectClone);
+
+            //Only spawn one object
+            if (isSingleMode)
+            {
+                return;
+            }
         }
-    }
-
-    private void InitializeParameters(ExperimentObject experimentObject)
-    {
-        //Status
-        experimentObject.isSpawnRedBlock = isSpawnRedBlock;
-        experimentObject.isReportAbnormalData = isReportAbnormalData;
-        experimentObject.isCatchAbnormalObject = isCatchAbnormalObject;
-
-        //Position
-        experimentObject.isRandomOriginPosition = isRandomOriginPosition;
-        experimentObject.randomRadius = randomRadius;
-        experimentObject.minRandomY = minRandomY;
-        experimentObject.maxRandomY = maxRandomY;
-        experimentObject.originPosition = originPosition;
-
-        //Rotation
-        experimentObject.isRandonOriginRotation = isRandonOriginRotation;
-        experimentObject.originRotation = originRotation;
-
-        //Linear Velocity
-        experimentObject.isRandomLinearVelocity = isRandomLinearVelocity;
-        experimentObject.minRandomLinearVelocity = minRandomLinearVelocity;
-        experimentObject.maxRandomLinearVelocity = maxRandomLinearVelocity;
-        experimentObject.originLinearVelocity = originLinearVelocity;
-
-        //Angular Velocity
-        experimentObject.isRandomAngularVelocity = isRandomAngularVelocity;
-        experimentObject.minRandomAngularVelocity = minRandomAngularVelocity;
-        experimentObject.maxRandomAngularVelocity = maxRandomAngularVelocity;
-        experimentObject.originAngularVelocity = originAngularVelocity;
-
-        //Block Parameters
-        experimentObject.isOscillate = isOscillate;
-        experimentObject.minBounce = minBounce;
-        experimentObject.maxBounce = maxBounce;
-        experimentObject.minFriction = minFriction;
-        experimentObject.maxFriction = maxFriction;
-        experimentObject.oscillateInterval = oscillateInterval;
-        experimentObject.blockScale = blockScale;
     }
 
     public void CalculateEfficiency()
