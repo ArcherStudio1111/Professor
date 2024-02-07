@@ -96,6 +96,7 @@ public class ExperimentManager : MonoBehaviour
             Destroy(experimentObject.gameObject);
         }
         experimentObjects.Clear();
+        ResetResult();
 
         for (int i = 0; i < experimentObjectNum; i++)
         {
@@ -110,6 +111,15 @@ public class ExperimentManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void ResetResult()
+    {
+        passedTimes = 0;
+        obstructedTimes = 0;
+        passedAndObstructedTimes = 0;
+        outBoundTimes = 0;
+        overallYield = 0;
     }
 
     public void CalculateEfficiency()
