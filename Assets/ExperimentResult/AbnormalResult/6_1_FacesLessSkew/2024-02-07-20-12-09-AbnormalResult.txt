@@ -1,0 +1,9 @@
+Scene Name: 6_1_FacesLessSkew
+Block Color: Blue
+origin Position: (0.390919700, 3.131958000, -0.544412100)
+origin Rotation: (55.538380000, 127.448000000, 351.642800000)
+origin Linear Velocity: (1.769031000, -0.929658100, 1.101248000)
+origin Angular Velocity: (223.980000000, 24.667950000, 21.365650000)
+static Friction: 0.001
+dynamic Friction: 0.001
+bounciness: 0.5

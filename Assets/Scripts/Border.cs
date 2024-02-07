@@ -6,7 +6,7 @@ public class Border : MonoBehaviour
 {
     [SerializeField] private ExperimentObject experimentObject;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Block"))
         {

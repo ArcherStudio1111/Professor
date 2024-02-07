@@ -37,7 +37,7 @@ public class Block : MonoBehaviour
             destroyTimer += Time.deltaTime;
             if (destroyTimer >= destroyInterval && isDestroying)
             {
-                blockFinishEvent?.Invoke();
+                InvokeBlockFinishEvent();
             }
         }
         else if (rb.velocity != Vector3.zero || rb.angularVelocity != Vector3.zero)
@@ -45,6 +45,11 @@ public class Block : MonoBehaviour
             isDestroying = false;
             destroyTimer = 0;
         }
+    }
+
+    public void InvokeBlockFinishEvent()
+    {
+        blockFinishEvent?.Invoke();
     }
 
     private void OscillateParameters()

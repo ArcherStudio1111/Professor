@@ -1,0 +1,7 @@
+Scene Name: 6_2_FacesLessSkew
+Block Color: Blue
+passed Times: 4
+obstructed Times: 0
+outBound Times: 1
+passed And Obstructed Times: 4
+Overall Yield(blue): 1

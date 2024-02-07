@@ -195,7 +195,7 @@ public class ExperimentObject : MonoBehaviour
 
     private IEnumerator WaitRespawn()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         Destroy(blockClone);
         SpawnBlock();
     }

@@ -1,0 +1,9 @@
+Scene Name: Rod_0
+Block Color: Blue
+origin Position: (-0.094015260, 2.163544000, -0.375483800)
+origin Rotation: (188.280000000, 111.501900000, 280.841400000)
+origin Linear Velocity: (-1.303761000, -0.591326800, 0.348242000)
+origin Angular Velocity: (282.720200000, 293.166500000, 182.346100000)
+static Friction: 0.001
+dynamic Friction: 0.001
+bounciness: 0.5

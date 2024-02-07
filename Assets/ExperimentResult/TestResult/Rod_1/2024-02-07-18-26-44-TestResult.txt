@@ -1,0 +1,7 @@
+Scene Name: Rod_1
+Block Color: Blue
+passed Times: 18
+obstructed Times: 21
+outBound Times: 11
+passed And Obstructed Times: 39
+Overall Yield(blue): 0.4615385

@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PassedCollider : MonoBehaviour
+public class PassedPlane : MonoBehaviour
 {
-    [SerializeField] private ExperimentManager experimentManager;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Block"))
         {
-            //experimentManager.SpawnBlock();
-            //Destroy(other.gameObject);
+            other.GetComponent<Block>().InvokeBlockFinishEvent();
         }
     }
 }
