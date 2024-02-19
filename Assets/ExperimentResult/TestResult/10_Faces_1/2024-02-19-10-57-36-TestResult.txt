@@ -1,0 +1,6 @@
+Scene Name: 10_Faces_1
+Block Color: Red
+passed Times: 3
+obstructed Times: 1
+outBound Times: 1
+passed And Obstructed Times: 4

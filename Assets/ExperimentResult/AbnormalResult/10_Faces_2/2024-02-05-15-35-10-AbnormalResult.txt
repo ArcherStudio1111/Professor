@@ -1,0 +1,9 @@
+Scene Name: 12_Faces
+Block Color: Blue
+origin Position: (0.287206800, 3.454549000, 0.323904000)
+origin Rotation: (113.618300000, 309.294500000, 260.696000000)
+origin Linear Velocity: (-0.843384900, -1.090230000, -0.233920300)
+origin Angular Velocity: (21.108590000, 279.484600000, 151.191800000)
+static Friction: 0.001
+dynamic Friction: 0.001
+bounciness: 0.5
