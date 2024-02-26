@@ -1,0 +1,7 @@
+Scene Name: 10_Faces_Revised_2
+Block Color: Blue
+passed Times: 11
+obstructed Times: 5
+outBound Times: 4
+passed And Obstructed Times: 16
+Overall Yield(blue): 0.6875

@@ -1,0 +1,9 @@
+Scene Name: 10_Faces_Revised_2
+Block Color: Red
+origin Position: (-0.100745600, 2.011877000, -0.229802400)
+origin Rotation: (116.047800000, 197.352900000, 273.919400000)
+origin Linear Velocity: (1.009442000, -1.596958000, -0.565337900)
+origin Angular Velocity: (167.108600000, 208.090700000, 9.741640000)
+static Friction: 0.001
+dynamic Friction: 0.001
+bounciness: 0.5

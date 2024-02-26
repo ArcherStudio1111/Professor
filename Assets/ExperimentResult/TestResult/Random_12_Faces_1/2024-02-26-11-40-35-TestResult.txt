@@ -1,0 +1,6 @@
+Scene Name: Random_12_Faces_1
+Block Color: Red
+passed Times: 13
+obstructed Times: 0
+outBound Times: 7
+passed And Obstructed Times: 13

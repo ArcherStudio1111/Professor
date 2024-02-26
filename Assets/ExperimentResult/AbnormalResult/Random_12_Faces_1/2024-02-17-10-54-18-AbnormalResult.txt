@@ -1,0 +1,9 @@
+Scene Name: O_Symmetry_2
+Block Color: Red
+origin Position: (-0.784966500, 1.693560000, -0.306491900)
+origin Rotation: (223.522000000, 87.915510000, 325.479900000)
+origin Linear Velocity: (0.807822800, -0.037485600, 1.451117000)
+origin Angular Velocity: (35.817970000, 106.944700000, 285.321300000)
+static Friction: 0.001
+dynamic Friction: 0.001
+bounciness: 0.5
