@@ -1,0 +1,6 @@
+Scene Name: Polar_10_Face_80%
+Block Color: Red
+passed Times: 7
+obstructed Times: 21
+outBound Times: 2
+passed And Obstructed Times: 28
