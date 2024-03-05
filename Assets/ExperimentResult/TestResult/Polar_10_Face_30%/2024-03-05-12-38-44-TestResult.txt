@@ -1,0 +1,7 @@
+Scene Name: Polar_10_Face_30%
+Block Color: Blue
+passed Times: 26
+obstructed Times: 0
+outBound Times: 4
+passed And Obstructed Times: 26
+Overall Yield(blue): 1
