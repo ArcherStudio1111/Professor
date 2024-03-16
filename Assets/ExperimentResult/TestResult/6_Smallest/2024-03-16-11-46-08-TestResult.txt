@@ -1,0 +1,7 @@
+Scene Name: 6_Smallest
+Block Color: Blue
+passed Times: 19
+obstructed Times: 0
+outBound Times: 11
+passed And Obstructed Times: 19
+Overall Yield(blue): 1
