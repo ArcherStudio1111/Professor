@@ -53,6 +53,8 @@ public class ExperimentManager : MonoBehaviour
     public float maxFriction = 0.001f;
     public float oscillateInterval = 0.2f;
     public float blockScale = 0.95f;
+    public float angularDrag = 0.05f;
+    public float linearDrag;
 
     [Space(20)]
     public ExperimentObject experimentObjectForTest;
