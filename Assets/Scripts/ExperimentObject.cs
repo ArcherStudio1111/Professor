@@ -45,6 +45,8 @@ public class ExperimentObject : MonoBehaviour
     public float maxFriction;
     public float oscillateInterval;
     public float blockScale;
+    public float angularDrag = 0.05f;
+    public float linearDrag;
 
     [Header("For Developer")]
     [SerializeField] private GameObject blockRedPivot;
@@ -114,6 +116,8 @@ public class ExperimentObject : MonoBehaviour
         maxFriction = experimentManager.maxFriction;
         oscillateInterval = experimentManager.oscillateInterval;
         blockScale = experimentManager.blockScale;
+        linearDrag = experimentManager.linearDrag;
+        angularDrag = experimentManager.angularDrag;
     }
 
     private void SetRandomPositionRotation()
@@ -149,6 +153,10 @@ public class ExperimentObject : MonoBehaviour
         blockScript.minFriction = minFriction;
         blockScript.maxFriction = maxFriction;
         blockScript.oscillateInterval = oscillateInterval;
+
+        var blockRb = blockClone.GetComponentInChildren<Rigidbody>();
+        blockRb.drag = linearDrag;
+        blockRb.angularDrag = angularDrag;
     }
 
     private void SetRandomVelocities()
