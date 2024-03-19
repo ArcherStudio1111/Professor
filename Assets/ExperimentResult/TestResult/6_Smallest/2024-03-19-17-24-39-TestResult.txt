@@ -1,0 +1,6 @@
+Scene Name: 6_Smallest
+Block Color: Red
+passed Times: 400
+obstructed Times: 10
+outBound Times: 90
+passed And Obstructed Times: 410
