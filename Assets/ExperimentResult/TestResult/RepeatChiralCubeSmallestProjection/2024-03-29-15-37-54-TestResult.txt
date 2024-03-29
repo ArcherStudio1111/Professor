@@ -1,0 +1,6 @@
+Scene Name: RepeatChiralCubeSmallestProjection
+Block Color: Red
+passed Times: 2
+obstructed Times: 18
+outBound Times: 10
+passed And Obstructed Times: 20
