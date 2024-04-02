@@ -6291,6 +6291,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1990387844829132742, guid: e1bdd70cae6a2ed4aa6c1d7970072830, type: 3}
+      propertyPath: judgeCombine
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5662707891522616080, guid: e1bdd70cae6a2ed4aa6c1d7970072830, type: 3}
       propertyPath: m_Name
       value: PassedPlane
@@ -6669,7 +6673,7 @@ PrefabInstance:
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: experimentObjectForTest
       value: 
-      objectReference: {fileID: 3866888230798130060, guid: ef59a34c84d6dde49a9a780b7ff8f90a, type: 3}
+      objectReference: {fileID: 4065538225186103059, guid: ec897d166ecd8a041968e609c563fa8f, type: 3}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isRandomAngularVelocity
       value: 1
@@ -6688,7 +6692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: minRandomLinearVelocity.x
-      value: -2
+      value: -2.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

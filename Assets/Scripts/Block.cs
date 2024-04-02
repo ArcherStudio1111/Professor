@@ -14,9 +14,18 @@ public class Block : MonoBehaviour
 
     public event Action blockFinishEvent;
 
-    [SerializeField] private Rigidbody rb;
+    public Rigidbody rb;
     [SerializeField] private MeshCollider meshCollider;
+    [SerializeField] private MeshCollider[] meshColliders;
+    
+    public enum JudgeCombine
+    {
+        IsNotCombinedBlock,
+        IsCombinedBlock,
+    }
 
+    public JudgeCombine judgeCombine;
+    
     private bool isDestroying;
     private float destroyInterval = 1;
     private float destroyTimer = 0;
@@ -67,19 +76,42 @@ public class Block : MonoBehaviour
                 oscillateTimer = 0;
             }
 
-            if (isOscillateAdd)
+            if (judgeCombine.Equals(JudgeCombine.IsCombinedBlock))
             {
-
-                meshCollider.material.staticFriction = minFriction + changePercent * frictionRange;
-                meshCollider.material.dynamicFriction = minFriction + changePercent * frictionRange;
-                meshCollider.material.bounciness = minBounce + changePercent * bounceRange;
-
+                if (isOscillateAdd)
+                {
+                    foreach (var partMeshCollider in meshColliders)
+                    {
+                        partMeshCollider.material.staticFriction = minFriction + changePercent * frictionRange;
+                        partMeshCollider.material.dynamicFriction = minFriction + changePercent * frictionRange;
+                        partMeshCollider.material.bounciness = minBounce + changePercent * bounceRange;
+                    }
+                }
+                else
+                {
+                    foreach (var partMeshCollider in meshColliders)
+                    {
+                        partMeshCollider.material.staticFriction = maxFriction - changePercent * frictionRange;
+                        partMeshCollider.material.dynamicFriction = maxFriction - changePercent * frictionRange;
+                        partMeshCollider.material.bounciness = maxBounce - changePercent * bounceRange;
+                    }
+                }
             }
-            else
+            else if(judgeCombine.Equals(JudgeCombine.IsNotCombinedBlock))
             {
-                meshCollider.material.staticFriction = maxFriction - changePercent * frictionRange;
-                meshCollider.material.dynamicFriction = maxFriction - changePercent * frictionRange;
-                meshCollider.material.bounciness = maxBounce - changePercent * bounceRange;
+                if (isOscillateAdd)
+                {
+                    meshCollider.material.staticFriction = minFriction + changePercent * frictionRange;
+                    meshCollider.material.dynamicFriction = minFriction + changePercent * frictionRange;
+                    meshCollider.material.bounciness = minBounce + changePercent * bounceRange;
+
+                }
+                else
+                {
+                    meshCollider.material.staticFriction = maxFriction - changePercent * frictionRange;
+                    meshCollider.material.dynamicFriction = maxFriction - changePercent * frictionRange;
+                    meshCollider.material.bounciness = maxBounce - changePercent * bounceRange;
+                }
             }
         }
     }
