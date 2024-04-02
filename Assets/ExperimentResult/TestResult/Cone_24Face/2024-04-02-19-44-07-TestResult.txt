@@ -1,0 +1,6 @@
+Scene Name: Cone_24Face
+Block Color: Red
+passed Times: 12
+obstructed Times: 9
+outBound Times: 9
+passed And Obstructed Times: 21
