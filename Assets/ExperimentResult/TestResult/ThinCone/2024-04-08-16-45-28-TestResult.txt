@@ -1,0 +1,7 @@
+Scene Name: ThinCone
+Block Color: Blue
+passed Times: 27
+obstructed Times: 0
+outBound Times: 4
+passed And Obstructed Times: 27
+Overall Yield(blue): 1

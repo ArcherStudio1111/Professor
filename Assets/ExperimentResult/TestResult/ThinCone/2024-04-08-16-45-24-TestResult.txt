@@ -1,0 +1,6 @@
+Scene Name: ThinCone
+Block Color: Red
+passed Times: 26
+obstructed Times: 0
+outBound Times: 4
+passed And Obstructed Times: 26
