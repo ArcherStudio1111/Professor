@@ -6595,6 +6595,10 @@ PrefabInstance:
       value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: angularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isOscillate
       value: 0
       objectReference: {fileID: 0}
@@ -6603,8 +6607,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: randomRadius
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: totalTestTimes
-      value: 30
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originPosition.x
@@ -6673,7 +6681,7 @@ PrefabInstance:
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: experimentObjectForTest
       value: 
-      objectReference: {fileID: 3477232154971520966, guid: 2375d6aee26be6d4c8fac598242324f9, type: 3}
+      objectReference: {fileID: 5659819133442247276, guid: 401f8c0c180a31047b6301069cd7e67e, type: 3}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isRandomAngularVelocity
       value: 1

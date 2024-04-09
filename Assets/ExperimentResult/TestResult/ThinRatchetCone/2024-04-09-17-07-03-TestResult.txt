@@ -1,0 +1,6 @@
+Scene Name: ThinRatchetCone
+Block Color: Red
+passed Times: 5
+obstructed Times: 25
+outBound Times: 70
+passed And Obstructed Times: 30

@@ -974,7 +974,7 @@ GameObject:
   - component: {fileID: 7067463563971063118}
   - component: {fileID: 8615248844305613979}
   m_Layer: 0
-  m_Name: ThinRatchetConeBlue
+  m_Name: BlueThinRatchetCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

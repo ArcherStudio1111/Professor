@@ -19,18 +19,25 @@ public class Block : MonoBehaviour
     [SerializeField] private MeshCollider[] meshColliders;
     
     public enum JudgeCombine
-    {
-        IsNotCombinedBlock,
-        IsCombinedBlock,
-    }
+     {
+         IsNotCombinedBlock,
+         IsCombinedBlock,
+     }
 
     public JudgeCombine judgeCombine;
     
     private bool isDestroying;
-    private float destroyInterval = 1;
+    private float destroyInterval = 5;
     private float destroyTimer = 0;
     private float oscillateTimer = 0;
     private bool isOscillateAdd;
+    private float previousHeight;
+    private float currentHeight;
+
+    private void Start()
+    {
+        StartCoroutine(CalcutePreviousHeight());
+    }
 
     private void Update()
     {
@@ -38,9 +45,17 @@ public class Block : MonoBehaviour
         OscillateParameters();
     }
 
+    private IEnumerator CalcutePreviousHeight()
+    {
+        previousHeight = transform.position.z;
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(CalcutePreviousHeight());
+    }
+
     private void JudgeStatic()
     {
-        if (rb.velocity == Vector3.zero && rb.angularVelocity == Vector3.zero)
+        currentHeight = transform.position.z;
+        if (Mathf.Abs(currentHeight - previousHeight) < 0.1f)
         {
             isDestroying = true;
             destroyTimer += Time.deltaTime;
@@ -49,7 +64,7 @@ public class Block : MonoBehaviour
                 InvokeBlockFinishEvent();
             }
         }
-        else if (rb.velocity != Vector3.zero || rb.angularVelocity != Vector3.zero)
+        else if (Mathf.Abs(currentHeight - previousHeight) >= 0.1f)
         {
             isDestroying = false;
             destroyTimer = 0;
