@@ -47,14 +47,14 @@ public class Block : MonoBehaviour
 
     private IEnumerator CalcutePreviousHeight()
     {
-        previousHeight = transform.position.z;
+        previousHeight = transform.position.y;
         yield return new WaitForSeconds(0.2f);
         StartCoroutine(CalcutePreviousHeight());
     }
 
     private void JudgeStatic()
     {
-        currentHeight = transform.position.z;
+        currentHeight = transform.position.y;
         if (Mathf.Abs(currentHeight - previousHeight) < 0.1f)
         {
             isDestroying = true;
