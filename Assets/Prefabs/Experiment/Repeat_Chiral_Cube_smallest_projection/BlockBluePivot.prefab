@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4672158484754915739}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -106,6 +106,8 @@ MonoBehaviour:
   oscillateInterval: 0.2
   rb: {fileID: 7096774974295267379}
   meshCollider: {fileID: 3600850170082018615}
+  meshColliders: []
+  judgeCombine: 0
 --- !u!54 &7096774974295267379
 Rigidbody:
   m_ObjectHideFlags: 0
