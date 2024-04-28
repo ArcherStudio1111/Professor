@@ -2872,8 +2872,8 @@ MonoBehaviour:
   isSpawnRedBlock: 0
   isSingleMode: 0
   isCatchAbnormalObject: 0
-  isReportAbnormalData: 1
-  totalTestTimes: 20
+  isReportAbnormalData: 0
+  totalTestTimes: 30
   experimentObjectNum: 5
   passedTimes: 0
   obstructedTimes: 0
@@ -2881,7 +2881,7 @@ MonoBehaviour:
   passedAndObstructedTimes: 0
   overallYield: 0
   isRandomOriginPosition: 1
-  randomRadius: 0.9
+  randomRadius: 0.48
   minRandomY: 1.5
   maxRandomY: 4
   originPosition: {x: 0, y: 0, z: 0}
@@ -2904,7 +2904,7 @@ MonoBehaviour:
   blockScale: 0.95
   angularDrag: 0.05
   linearDrag: 0
-  experimentObjectForTest: {fileID: 3909850417473238111, guid: 749e57fefbe452345a28c98c26810918, type: 3}
+  experimentObjectForTest: {fileID: 1807163468930452152, guid: 16172fb17fe6c304eb1d971191bfbf1c, type: 3}
 --- !u!4 &781271622
 Transform:
   m_ObjectHideFlags: 0

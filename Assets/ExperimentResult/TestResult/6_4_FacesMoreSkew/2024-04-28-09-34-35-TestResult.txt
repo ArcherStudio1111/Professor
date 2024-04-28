@@ -1,0 +1,6 @@
+Scene Name: 6_4_FacesMoreSkew
+Block Color: Red
+passed Times: 30
+obstructed Times: 0
+outBound Times: 0
+passed And Obstructed Times: 30
