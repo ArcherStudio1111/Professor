@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 8768918679279308859}
   - component: {fileID: 3866888230798130060}
   m_Layer: 0
-  m_Name: ExperimentObject_12
+  m_Name: ExperimentObject_12Funnel_10Revised
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   blockScale: 0
   angularDrag: 0.05
   linearDrag: 0
-  blockRedPivot: {fileID: 890211366573500849, guid: 9d9ab1c2850921043872fb26defb1117, type: 3}
-  blockBluePivot: {fileID: 30819838356785655, guid: 3f90a856a3d23dc49b1127dc2e947161, type: 3}
+  blockRedPivot: {fileID: 6315720420502888912, guid: 6bbc80efb8b3c5b4286df8033f24ed32, type: 3}
+  blockBluePivot: {fileID: 6482584292108867200, guid: b5cdc3c3ded9b834a9c69ab9e48d9abd, type: 3}
   abnormalMark: {fileID: 7003170134811421420}
   blockPassStatus: 0

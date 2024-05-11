@@ -1,0 +1,7 @@
+Scene Name: 12_FacesFunnel_6_FacesMoreSkew
+Block Color: Blue
+passed Times: 0
+obstructed Times: 20
+outBound Times: 10
+passed And Obstructed Times: 20
+Overall Yield(blue): 0

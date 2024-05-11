@@ -1,0 +1,6 @@
+Scene Name: 12_FacesFunnel_Random_11Face
+Block Color: Red
+passed Times: 0
+obstructed Times: 25
+outBound Times: 5
+passed And Obstructed Times: 25

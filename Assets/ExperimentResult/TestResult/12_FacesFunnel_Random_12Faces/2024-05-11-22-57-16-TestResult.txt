@@ -1,0 +1,7 @@
+Scene Name: 12_FacesFunnel_Random_12Faces
+Block Color: Blue
+passed Times: 0
+obstructed Times: 24
+outBound Times: 6
+passed And Obstructed Times: 24
+Overall Yield(blue): 0

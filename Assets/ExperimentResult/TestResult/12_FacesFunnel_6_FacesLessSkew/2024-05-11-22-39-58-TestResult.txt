@@ -1,0 +1,6 @@
+Scene Name: 12_FacesFunnel_6_FacesLessSkew
+Block Color: Red
+passed Times: 0
+obstructed Times: 23
+outBound Times: 7
+passed And Obstructed Times: 23
