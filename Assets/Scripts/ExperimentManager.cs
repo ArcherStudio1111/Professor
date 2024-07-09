@@ -46,15 +46,20 @@ public class ExperimentManager : MonoBehaviour
     public Vector3 originAngularVelocity;
 
     [Header("Block Parameters")]
+    public float blockScale = 0.95f;
+    public float angularDrag = 0.05f;
+    public float linearDrag;
+    public float staticFriction = 0.001f;
+    public float dynamicFriction = 0.001f;
+    public float bounciness = 0.5f;
+    
+    [Header("Oscillate")]
     public bool isOscillate;
     public float minBounce = 0.502f;
     public float maxBounce = 0.498f;
     public float minFriction = 0.001f;
     public float maxFriction = 0.001f;
     public float oscillateInterval = 0.2f;
-    public float blockScale = 0.95f;
-    public float angularDrag = 0.05f;
-    public float linearDrag;
 
     [Space(20)]
     public ExperimentObject experimentObjectForTest;

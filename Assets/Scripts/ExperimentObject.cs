@@ -38,15 +38,20 @@ public class ExperimentObject : MonoBehaviour
     public Vector3 originAngularVelocity;
 
     [Header("Block Parameters")]
+    public float blockScale;
+    public float angularDrag = 0.05f;
+    public float linearDrag;
+    public float staticFriction;
+    public float dynamicFriction;
+    public float bounciness;
+
+    [Header("Oscillate")]
     public bool isOscillate;
     public float minBounce;
     public float maxBounce;
     public float minFriction;
     public float maxFriction;
     public float oscillateInterval;
-    public float blockScale;
-    public float angularDrag = 0.05f;
-    public float linearDrag;
 
     [Header("For Developer")]
     [SerializeField] private GameObject blockRedPivot;
@@ -109,15 +114,36 @@ public class ExperimentObject : MonoBehaviour
         originAngularVelocity = experimentManager.originAngularVelocity;
 
         //Block Parameters
+        blockScale = experimentManager.blockScale;
+        linearDrag = experimentManager.linearDrag;
+        angularDrag = experimentManager.angularDrag;
+        staticFriction = experimentManager.staticFriction;
+        dynamicFriction = experimentManager.dynamicFriction;
+        bounciness = experimentManager.bounciness;
+        if (staticFriction <= 0)
+        {
+            staticFriction = 0.001f;
+        }
+        if (dynamicFriction <= 0)
+        {
+            dynamicFriction = 0.001f;
+        }
+        if (bounciness <= 0)
+        {
+            bounciness = 0.001f;
+        }
+        if (bounciness > 1)
+        {
+            bounciness = 1f;
+        }
+        
+        //Oscillate
         isOscillate = experimentManager.isOscillate;
         minBounce = experimentManager.minBounce;
         maxBounce = experimentManager.maxBounce;
         minFriction = experimentManager.minFriction;
         maxFriction = experimentManager.maxFriction;
         oscillateInterval = experimentManager.oscillateInterval;
-        blockScale = experimentManager.blockScale;
-        linearDrag = experimentManager.linearDrag;
-        angularDrag = experimentManager.angularDrag;
     }
 
     private void SetRandomPositionRotation()
@@ -157,6 +183,24 @@ public class ExperimentObject : MonoBehaviour
         var blockRb = blockClone.GetComponentInChildren<Rigidbody>();
         blockRb.drag = linearDrag;
         blockRb.angularDrag = angularDrag;
+
+        if (blockScript.judgeCombine.Equals(Block.JudgeCombine.IsNotCombinedBlock))
+        {
+            var blockPhysics = blockClone.GetComponentInChildren<MeshCollider>().material;
+            blockPhysics.staticFriction = staticFriction;
+            blockPhysics.dynamicFriction = dynamicFriction;
+            blockPhysics.bounciness = bounciness;
+        }
+        if (blockScript.judgeCombine.Equals(Block.JudgeCombine.IsCombinedBlock))
+        {
+            var blockPhysicses = blockClone.GetComponentsInChildren<MeshCollider>();
+            foreach (var oneBlockPhysics in blockPhysicses)
+            {
+                oneBlockPhysics.material.staticFriction = staticFriction;
+                oneBlockPhysics.material.dynamicFriction = dynamicFriction;
+                oneBlockPhysics.material.bounciness = bounciness;
+            }
+        }
     }
 
     private void SetRandomVelocities()

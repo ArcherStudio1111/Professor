@@ -6591,6 +6591,10 @@ PrefabInstance:
       value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: bounciness
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isOscillate
       value: 0
       objectReference: {fileID: 0}
@@ -6599,8 +6603,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: staticFriction
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: totalTestTimes
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: dynamicFriction
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: originPosition.x
