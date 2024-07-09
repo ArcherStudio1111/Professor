@@ -1,0 +1,7 @@
+Scene Name: AchiralRodSquareFunnel
+Block Color: Blue
+passed Times: 4
+obstructed Times: 6
+outBound Times: 20
+passed And Obstructed Times: 10
+Overall Yield(blue): 0.4

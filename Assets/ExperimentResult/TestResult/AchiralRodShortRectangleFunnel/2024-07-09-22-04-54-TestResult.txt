@@ -1,0 +1,7 @@
+Scene Name: AchiralRodShortRectangleFunnel
+Block Color: Blue
+passed Times: 9
+obstructed Times: 9
+outBound Times: 12
+passed And Obstructed Times: 18
+Overall Yield(blue): 0.5
