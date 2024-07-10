@@ -1,0 +1,7 @@
+Scene Name: 7_Faces
+Block Color: Blue
+passed Times: 0
+obstructed Times: 27
+outBound Times: 3
+passed And Obstructed Times: 27
+Overall Yield(blue): 0

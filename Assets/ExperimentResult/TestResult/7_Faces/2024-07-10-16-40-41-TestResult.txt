@@ -1,0 +1,6 @@
+Scene Name: 7_Faces
+Block Color: Red
+passed Times: 0
+obstructed Times: 18
+outBound Times: 12
+passed And Obstructed Times: 18
