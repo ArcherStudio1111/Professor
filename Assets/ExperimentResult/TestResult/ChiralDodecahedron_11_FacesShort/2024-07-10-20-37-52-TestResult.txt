@@ -1,0 +1,6 @@
+Scene Name: ChiralDodecahedron_11_FacesShort
+Block Color: Red
+passed Times: 0
+obstructed Times: 24
+outBound Times: 6
+passed And Obstructed Times: 24

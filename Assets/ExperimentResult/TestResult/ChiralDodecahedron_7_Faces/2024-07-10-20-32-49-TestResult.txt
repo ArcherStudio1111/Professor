@@ -1,0 +1,6 @@
+Scene Name: ChiralDodecahedron_7_Faces
+Block Color: Red
+passed Times: 0
+obstructed Times: 28
+outBound Times: 2
+passed And Obstructed Times: 28
