@@ -1,0 +1,6 @@
+Scene Name: 11_FacesMinimumHoles
+Block Color: Red
+passed Times: 1
+obstructed Times: 21
+outBound Times: 8
+passed And Obstructed Times: 22

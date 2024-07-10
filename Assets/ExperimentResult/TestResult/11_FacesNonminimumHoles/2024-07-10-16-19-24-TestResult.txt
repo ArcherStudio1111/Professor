@@ -1,0 +1,7 @@
+Scene Name: 11_FacesNonminimumHoles
+Block Color: Blue
+passed Times: 7
+obstructed Times: 16
+outBound Times: 7
+passed And Obstructed Times: 23
+Overall Yield(blue): 0.3043478

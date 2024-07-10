@@ -1,0 +1,6 @@
+Scene Name: 10_Faces_Revised_2
+Block Color: Red
+passed Times: 11
+obstructed Times: 3
+outBound Times: 6
+passed And Obstructed Times: 14
