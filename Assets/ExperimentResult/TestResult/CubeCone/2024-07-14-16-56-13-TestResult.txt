@@ -1,0 +1,7 @@
+Scene Name: CubeCone
+Block Color: Blue
+passed Times: 0
+obstructed Times: 21
+outBound Times: 9
+passed And Obstructed Times: 21
+Overall Yield: 0

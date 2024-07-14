@@ -21,6 +21,8 @@ public class ExperimentManager : MonoBehaviour
     public float outBoundTimes;
     public float passedAndObstructedTimes;
     public float overallYield;
+    private List<float> poTimes = new();
+    private List<float> overallYieldTimes = new();
 
     [Header("Position")]
     public bool isRandomOriginPosition = true;
@@ -131,15 +133,13 @@ public class ExperimentManager : MonoBehaviour
 
     public void CalculateEfficiency()
     {
-        if (!isSpawnRedBlock)
-        {
-            overallYield = passedTimes / passedAndObstructedTimes;
-        }
+        overallYield = passedTimes / passedAndObstructedTimes;
     }
 
     public void CountTestTime()
     {
         totalTestTimes--;
+        OutPutCsv();
         if(totalTestTimes <= 0)
         {
             Time.timeScale = 0;
@@ -158,11 +158,26 @@ public class ExperimentManager : MonoBehaviour
             testResult.WriteLine("obstructed Times: " + obstructedTimes);
             testResult.WriteLine("outBound Times: " + outBoundTimes);
             testResult.WriteLine("passed And Obstructed Times: " + passedAndObstructedTimes);
-            if (!isSpawnRedBlock)
+            testResult.WriteLine("Overall Yield: " + overallYield);
+        }
+    }
+
+    private void OutPutCsv()
+    {
+        poTimes.Add(passedTimes);
+        overallYieldTimes.Add(overallYield);
+        if (totalTestTimes > 0)
+        {
+            return;
+        }
+        var outputPath = Environment.CurrentDirectory + @"\Assets\ExperimentResult\TestResult\" + SceneManager.GetActiveScene().name + "\\" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-") + "TestProcess" + ".csv";
+        using (StreamWriter testProcess = new StreamWriter(outputPath))
+        {
+            testProcess.WriteLine("PassedAndObstructedTimes,OverallYieldTimes");
+            for (int i = 0; i < poTimes.Count; i++)
             {
-                testResult.WriteLine("Overall Yield(blue): " + overallYield);
+                testProcess.WriteLine(poTimes[i] + "," + overallYieldTimes[i]);
             }
         }
-        Debug.Log("Test Over!");
     }
 }
