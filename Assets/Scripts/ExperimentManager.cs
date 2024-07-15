@@ -164,7 +164,7 @@ public class ExperimentManager : MonoBehaviour
 
     private void OutPutCsv()
     {
-        poTimes.Add(passedTimes);
+        poTimes.Add(passedAndObstructedTimes);
         overallYieldTimes.Add(overallYield);
         if (totalTestTimes > 0)
         {
