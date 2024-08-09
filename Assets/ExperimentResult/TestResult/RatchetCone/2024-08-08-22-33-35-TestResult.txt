@@ -1,0 +1,7 @@
+Scene Name: RatchetCone
+Block Color: Blue
+passed Times: 7
+obstructed Times: 23
+outBound Times: 0
+passed And Obstructed Times: 30
+Overall Yield: 0.2333333

@@ -6591,12 +6591,20 @@ PrefabInstance:
       value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: angularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isOscillate
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: isSingleMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
+      propertyPath: randomRadius
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: totalTestTimes
