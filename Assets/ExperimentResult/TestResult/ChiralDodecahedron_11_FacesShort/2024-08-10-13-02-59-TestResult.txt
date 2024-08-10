@@ -1,0 +1,7 @@
+Scene Name: ChiralDodecahedron_11_FacesShort
+Block Color: Blue
+passed Times: 97
+obstructed Times: 0
+outBound Times: 7
+passed And Obstructed Times: 97
+Overall Yield: 1

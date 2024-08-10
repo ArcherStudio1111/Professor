@@ -1,0 +1,7 @@
+Scene Name: 12_Faces
+Block Color: Blue
+passed Times: 90
+obstructed Times: 0
+outBound Times: 10
+passed And Obstructed Times: 90
+Overall Yield: 1

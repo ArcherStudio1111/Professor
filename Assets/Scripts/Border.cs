@@ -5,7 +5,7 @@ using UnityEngine;
 public class Border : MonoBehaviour
 {
     [SerializeField] private ExperimentObject experimentObject;
-
+/*
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Block"))
@@ -13,5 +13,5 @@ public class Border : MonoBehaviour
             experimentObject.blockPassStatus = ExperimentObject.BlockPassStatus.OutBound;
             experimentObject.OnblockFinish();
         }
-    }
+    }*/
 }
