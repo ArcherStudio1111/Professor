@@ -6593,7 +6593,7 @@ PrefabInstance:
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: experimentObjectForTest
       value: 
-      objectReference: {fileID: 951939859724424921, guid: dbd0c31a3e7433b41bfa4e2216623086, type: 3}
+      objectReference: {fileID: 8441091806052602588, guid: 95317a67539773f4e8c679a9fd1386ac, type: 3}
     - target: {fileID: 3413241017037654449, guid: 6f14a9ff290753743b05aafcab823686, type: 3}
       propertyPath: minRandomLinearVelocity.x
       value: -2

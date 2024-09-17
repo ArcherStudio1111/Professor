@@ -1,0 +1,7 @@
+Scene Name: RodLongRectangleFunnel
+Block Color: Blue
+passed Times: 0
+obstructed Times: 220
+outBound Times: 80
+passed And Obstructed Times: 220
+Overall Yield: 0
